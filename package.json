@@ -1,0 +1,19 @@
+{
+  "name": "wego",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EJooJLi/wego.git"
+  },
+  "author": "James & Elliott",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EJooJLi/wego/issues"
+  },
+  "homepage": "https://github.com/EJooJLi/wego#readme"
+}
