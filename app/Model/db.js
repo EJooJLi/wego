@@ -1,1 +1,9 @@
 //DB handler
+//First we load mongoose
+var mongoose = require("mongoose");
+//Then create the connection
+var uri = "mongodb://ejl:p%40ssword1@cluster0-shard-00-00-trzpy.mongodb.net:27017,cluster0-shard-00-01-trzpy.mongodb.net:27017,cluster0-shard-00-02-trzpy.mongodb.net:27017/userdb?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin";
+var db = mongoose.connect(uri, {
+  useMongoClient: true,
+});
+exports.db = db;
