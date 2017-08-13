@@ -1,0 +1,21 @@
+<!-- This is not the actual html file, but a component. Actual HTML is index.html -->
+<div id="navbar">
+  <p> Login <p>
+</div>
+<div class="title">
+  <h1> Welcome to WeGo </h1>
+</div>
+<div class="prompt">
+  <form>
+    <p>What's the plan?</p>
+    <br/>
+    <div id="field">
+    <input type="text" name="plans" id="prompt" #prompt>
+    <button type="submit" id="submit" (click)="formsubmit(prompt.value)"> Let's go! </button>
+  </div>
+  </form>
+  <p class="confirmation">{{formsubmitted}}</p>
+  <br/>
+  <h2> Past Submissions: </h2>
+  <ul><li *ngFor="let subs of submits">{{subs}}</li></ul>
+</div>
