@@ -9,3 +9,6 @@ if (environment.production) {
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule);
+//When you bootstrap with the AppComponent class (in main.ts),
+//Angular looks for a <my-app> in the index.html, finds it,
+//instantiates an instance of AppComponent, and renders it inside the <my-app> tag.
