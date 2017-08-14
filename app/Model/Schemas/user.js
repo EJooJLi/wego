@@ -8,16 +8,40 @@ var mongoose = require('mongoose'),
 //Then we declare a User Schema to identify the actual format of the data
 
 var UserSchema = new Schema({
-  id: {type: Number},
-  firstname: {type: String},
-  lastname: {type: String},
-  username: {type: String},
-  password: {type: String},
-  location: {type: String},
-  updated_at: {type: Date, required: true, default: Date.now}
+  id: {
+    type: Number
+  },
+  firstname: {
+    type: String,
+    required: true
+  },
+  lastname: {
+    type: String,
+    required: true
+  },
+  username: {
+    type: String,
+    required: [true, "No username?"],
+    index: {
+      unique: true,
+      dropDups: true
+    }
+  },
+  password: {
+    type: String,
+    required: [true, "Create a password, please!"]
+  },
+  location: {
+    type: String,
+    required: true
+  },
+  updated_at: {
+    type: Date,
+    required: true,
+    default: Date.now
+  }
 });
 
 //Now we set a model using the UserSchema that can be used by our app
-var User = mongoose.model('User', UserSchema);
 //Export the Schema as User that can be required by our app
-module.exports = User;
+module.exports = mongoose.model('User', UserSchema);
