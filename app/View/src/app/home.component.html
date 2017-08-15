@@ -1,0 +1,20 @@
+<!-- This is not the actual html file, but a component. Actual HTML is index.html -->
+<div class="navbar">
+  <a routerLink="../signup"><p> Sign Up </p></a>
+</div>
+  <h1> Welcome to WeGo </h1>
+<div class="UserInput" style="margin-top:90px;">
+  <form>
+    <p>What's the plan?</p>
+    <br/>
+    <div>
+    <input type="text" id="planinput" #plans (keyup)="0">
+    <!-- the key up allows for "prompt.value" to be updated live-->
+    <button type="submit" class="submit" (click)="formsubmit(plans.value)"> Let's go! </button>
+  </div>
+  </form>
+  <br/>
+  <h2> Submissions: </h2>
+  <ul><li *ngFor="let subs of submits">{{subs}}</li></ul>
+  <br/>
+</div>
