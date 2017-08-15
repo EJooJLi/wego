@@ -4,9 +4,7 @@ import { FormsModule }   from '@angular/forms'; // <-- NgModel lives here
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home.component';
-import { TestComponent } from './test.component';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpComponent } from './httptest.component';
 import { UserComponent } from './user.component';
 import { Routes, RouterModule } from "@angular/router";
 
@@ -22,8 +20,6 @@ const routes: Routes = [
   declarations: [
     HomeComponent,
     AppComponent,
-    TestComponent,
-    HttpComponent,
     UserComponent
   ],
   imports: [
