@@ -3,11 +3,11 @@
 <div class="UserInput">
   <form>
     <p style="margin-top:10px;">Username</p>
-    <input type="text" #username class="signupinfo">
+    <input type="text" #username class="forminputs" id="signupinfo">
     <p style="margin-top:10px;">Email Address</p>
-    <input type="text" #email class="signupinfo">
+    <input type="text" #email class="forminputs" id="signupinfo">
     <p style="margin-top:10px;">Password</p>
-    <input type="text" #password class="signupinfo">
+    <input type="text" #password class="forminputs" id="signupinfo">
     <br/>
     <button type="submit" class="submit" style="margin-top:10px;" (click)="getinfo(username.value, email.value, password.value)"(click)="doPOST()"> Submit </button>
   </form>

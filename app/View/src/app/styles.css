@@ -92,28 +92,31 @@ li {
   font-size: 25px;
 }
 
+.forminputs {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.forminputs:hover {
+  background-color: rgba(222, 224, 230, 0.9);
+}
+
+.forminputs:focus {
+  background-color: rgba(222, 224, 230, 0.9);
+  outline: none;
+}
+
 #planinput {
+  background-image: url('https://image.flaticon.com/icons/png/512/10/10536.png');
+  background-size: contain;
+  background-repeat: no-repeat;
   width: 500px;
   height: 50px;
   margin: auto;
   font-size:20px;
   padding-left: 60px;
   border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.9);
-  background-image: url('https://image.flaticon.com/icons/png/512/10/10536.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   display: inline-block;
-}
-
-#planinput:hover {
-  background-color: rgba(222, 224, 230, 0.9);
-}
-
-#planinput:focus {
-  background-color: rgba(222, 224, 230, 0.9);
-  outline: none;
 }
 
 .submit {
@@ -141,16 +144,12 @@ li {
   font-size: 15px;
 }
 
-.signupinfo {
+#signupinfo {
   width: 500px;
   height: 50px;
   margin: auto;
   font-size:20px;
   padding-left: 20px;
   border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.9);
-  background-size: contain;
-  background-repeat: no-repeat;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   display: inline-block;
 }

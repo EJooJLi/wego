@@ -5,7 +5,7 @@
     <p>What's the plan?</p>
     <br/>
     <div>
-    <input type="text" id="planinput" #plans (keyup)="0">
+    <input type="text" class="forminputs" id="planinput" #plans (keyup)="0">
     <!-- the key up allows for "prompt.value" to be updated live-->
     <button type="submit" class="submit" (click)="formsubmit(plans.value)"> Let's go! </button>
   </div>
