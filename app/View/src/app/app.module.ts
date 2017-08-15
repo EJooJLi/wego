@@ -3,18 +3,36 @@ import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms'; // <-- NgModel lives here
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header.component';
+import { HomeComponent } from './home.component';
+import { TestComponent } from './test.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpComponent } from './httptest.component';
+import { UserComponent } from './user.component';
+import {Routes, RouterModule} from "@angular/router";
+
+const routes: Routes = [
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: 'find', redirectTo: 'search'},
+  {path: 'home', component: HomeComponent},
+  {path: 'signup', component: UserComponent},
+  {path: '**', component: HomeComponent}
+];
 
 @NgModule({
   declarations: [
-    HeaderComponent,
-    AppComponent
+    HomeComponent,
+    AppComponent,
+    TestComponent,
+    HttpComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule // <-- import the FormsModule before binding with [(ngModel)]
+    FormsModule, // <-- import the FormsModule before binding with [(ngModel)]
+    HttpClientModule,
+    RouterModule.forRoot(routes, {useHash: true}) //<-- for routing
   ],
   providers: [],
-  bootstrap: [HeaderComponent, AppComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,45 +1,57 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
-export class activity {
-  name: string;
-  weather: string;
-  category: string;
+interface weatherdata {
+  weather: string
 }
 
 @Component({
   selector: 'app-root',
-  //templateUrl: './app.component.html', You CANT have a templateUrl AND a template in a component.
-  template: `
-  <h1>{{ToDo}}</h1>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="entername" placeholder="Your Name">
-  </div>
-  <h2>{{hiking.name}}</h2>
-  <div><label>Weather: </label>{{hiking.weather}}</div>
-  <div><label>Category: </label>{{hiking.category}}</div>
-  <h1> Cuisines! </h1>
-  <ul>
-    <li *ngFor="let name of cuisines">
-    {{name}}
-    </li>
-  </ul>
-  `
+  template:`<router-outlet></router-outlet>
+`
 })
-//name can be anything! but cuisines is an object
-//The *ngFor in the <li> element is the Angular "repeater" directive.
-//It marks that <li> element (and its children) as the "repeater template".
-//So it can actually be <p> as well!
 
-export class AppComponent {
-  entername = 'Enter your name here';
-  ToDo = 'Things to do';
-  hiking: activity = {
-    name: 'Hiking',
-    weather: 'Cool',
-    category: 'Outdoors'
-  };
-  cuisines = ['American','Korean','Chinese','Indian'];
-  price = ['$$$','$$','$'];
-  choice = this.cuisines[0];
+// @Component({
+//   selector: 'app-root',
+//   template:`<header>test2</header> <br/> <tester></tester>
+//   <br/>
+//   <br/>
+//   <app></app>`
+// })
+
+export class AppComponent implements OnInit {
+
+  constructor(private http: HttpClient) {
+
+  }
+
+  ngOnInit(): void {
+    this.http.get<weatherdata>('http://api.openweathermap.org/data/2.5/weather?zip=94124&APPID=740db4574e5fd4a81b4608e9f5d615e6').subscribe(
+      data => {
+        console.log(data.weather);
+    },
+      (err: HttpErrorResponse) => {
+        if (err.error instanceof Error){
+          console.log("Client Side Error occurred");
+        } else {
+          console.log("Server Side Error occurred");
+        }
+      }
+    )
+
+    const req = this.http.post('https://jsonplaceholder.typicode.com/posts', {
+      title: "foo",
+      body: "bar",
+      userId: 1
+    })
+    .subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.log("error occurred");
+      }
+    )
+
+  }
 }
