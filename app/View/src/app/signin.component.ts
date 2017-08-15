@@ -4,12 +4,12 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'userdata',
-  templateUrl: './user.component.html',
-  styleUrls: ['./home.component.css']
+  templateUrl: './signin.component.html',
+  styleUrls: ['./styles.css']
 
 })
 
-export class UserComponent {
+export class SignInComponent {
 
   userinfo="";
 
@@ -26,7 +26,5 @@ export class UserComponent {
     let url = `${this.apiRoot}/post`;
     this.http.post(url, this.userinfo).subscribe(res => console.log(res));
   }
-
   //END HTTP STUFF
-
 }

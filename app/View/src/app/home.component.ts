@@ -5,11 +5,18 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'header',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./styles.css']
 
 })
 
 export class HomeComponent {
+
+  shownav = true;
+
+  navtoggle (shownav: string) {
+    this.shownav=!this.shownav;
+  }
+
   submits = [''];
 
   formsubmit(input: string) {

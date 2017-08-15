@@ -7,17 +7,9 @@ interface weatherdata {
 
 @Component({
   selector: 'app-root',
-  template:`<router-outlet></router-outlet>
+  template:`<navbar></navbar><router-outlet></router-outlet>
 `
 })
-
-// @Component({
-//   selector: 'app-root',
-//   template:`<header>test2</header> <br/> <tester></tester>
-//   <br/>
-//   <br/>
-//   <app></app>`
-// })
 
 export class AppComponent implements OnInit {
 

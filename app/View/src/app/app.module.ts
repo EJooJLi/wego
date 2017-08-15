@@ -1,18 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms'; // <-- NgModel lives here
-
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home.component';
 import { HttpClientModule } from '@angular/common/http';
-import { UserComponent } from './user.component';
+import { SignUpComponent } from './signup.component';
+import { SignInComponent } from './signin.component';
+import { NavBarComponent } from './navbar.component';
 import { Routes, RouterModule } from "@angular/router";
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'find', redirectTo: 'search'},
   {path: 'home', component: HomeComponent},
-  {path: 'signup', component: UserComponent},
+  {path: 'signup', component: SignUpComponent},
+  {path: 'signin', component: SignInComponent},
   {path: '**', component: HomeComponent}
 ];
 
@@ -20,7 +22,9 @@ const routes: Routes = [
   declarations: [
     HomeComponent,
     AppComponent,
-    UserComponent
+    SignUpComponent,
+    SignInComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
