@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SignUpComponent } from './signup.component';
 import { SignInComponent } from './signin.component';
 import { NavBarComponent } from './navbar.component';
+import { ProfileComponent } from './profile.component';
 import { Routes, RouterModule } from "@angular/router";
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'signup', component: SignUpComponent},
   {path: 'signin', component: SignInComponent},
+  {path: 'profile', component: ProfileComponent},
   {path: '**', component: HomeComponent}
 ];
 
@@ -24,7 +26,8 @@ const routes: Routes = [
     AppComponent,
     SignUpComponent,
     SignInComponent,
-    NavBarComponent
+    NavBarComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

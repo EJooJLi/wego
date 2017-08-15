@@ -21,10 +21,11 @@ h1 {
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 30px;
 }
 
 h3 {
+  font-size: 20px;
 }
 
 p {
@@ -152,4 +153,28 @@ li {
   padding-left: 20px;
   border-radius: 5px;
   display: inline-block;
+}
+
+.profileinformation {
+  display: inline-block;
+  width:100%;
+  height:auto;
+}
+
+#profiledetails {
+  display: inline-block;
+  width: 48%;
+  margin-top: 50px;
+  margin-left: 1%;
+  height: auto;
+  background-color: rgba(255,255,255,0.7);
+  border-radius: 10px;
+  padding: 0px 10px 0px 10px;
+  vertical-align: top;
+  /*the top part prevents the divs from shifting when you put in text*/
+}
+
+#preferences {
+  display: inline-block;
+  width: 49%;
 }
