@@ -48,8 +48,12 @@ li {
   outline: 0;
 }
 
+#menubutton:hover {
+  width: 42px;
+  height: 42px;
+}
 
-.navbutton, .navbutton:hover, .navbutton:active, .navbutton:visited, .navbutton:focus {
+.navbutton, .navbutton:active, .navbutton:visited, .navbutton:focus {
   background-color: rgba(255, 255, 255, 0);
   width: 50px;
   text-align: center;
@@ -73,6 +77,14 @@ li {
   padding-left: 4px;
   text-align: left;
   font-size: 15px;
+}
+
+#navbar p:hover {
+  font-size: 17px;
+}
+
+#navbar p:focus, #navbar p:active {
+  color: blue;
 }
 
 .UserInput {

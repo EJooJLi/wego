@@ -21,7 +21,7 @@ export class NavBarComponent {
 
   shownav = true;
 
-  navtoggle (shownav: string) {
+  navtoggle () {
     this.shownav=!this.shownav;
   }
 }
