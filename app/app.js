@@ -8,7 +8,7 @@ var mongoose = require("mongoose");
 var db = require("./Model/db");
 var userRoutes = require("./Controller/Routes/userRoutes");
 // var User = require("./Controller/user.js");
-
+var controller = require("./Controller/user.js");
 var User = mongoose.model("User");
 
 //Creating an Express app
@@ -34,16 +34,20 @@ app.use(bodyParser.json());
 app.use("./users", userRoutes);
     // app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/users", function(req, res){
-  User.find({}, function(err, doc){
-    if (!err) {
-      res.json(doc);
-    } else {
-      throw(err);
-    }
-  });
-});
+app.get("/users", controller.get); //<---testing out controller functions
 
+// GET
+// app.get("/users", function(req, res){
+//   User.find({}, function(err, doc){
+//     if (!err) {
+//       res.json(doc);
+//     } else {
+//       throw(err);
+//     }
+//   });
+// });
+
+// POST
 app.post("/users", function(req, res){
   var newUser = new User(req.body);
   console.log(req.body);
@@ -59,6 +63,7 @@ app.post("/users", function(req, res){
   });
 });
 
+// GET by ID
 app.get("/users/:id", function(req, res){
   User.findById(req.params.id, function(err, doc) {
     if (err) {
@@ -72,6 +77,7 @@ app.get("/users/:id", function(req, res){
   });
 });
 
+// PUT
 app.put("/users/:id", function(req, res){
   User.findByIdAndUpdate(req.params.id, req.body, function(err, doc){
     if (err) {
