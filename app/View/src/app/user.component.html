@@ -12,6 +12,7 @@
     <p style="margin-top:10px;">Password</p>
     <input type="text" #password class="signupinfo">
     <br/>
-    <button type="submit" class="submit" style="margin-top:10px;" (click)="userinput(username.value+', '+email.value+', '+password.value)" (click)="doPOST()"> Submit </button>
+    <button type="submit" class="submit" style="margin-top:10px;" (click)="getinfo(username.value, email.value, password.value)"(click)="doPOST()"> Submit </button>
   </form>
+  <p>Testing: {{userinfo}} </p>
 </div>

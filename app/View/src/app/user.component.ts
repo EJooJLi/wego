@@ -10,17 +10,16 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 })
 
 export class UserComponent {
-  //BEGIN HTTP STUFF - STILL A MYSTERY
-  constructor(private http: HttpClient) { }
-  apiRoot: string = "http://httpbin.org";
 
   userinfo="";
 
-  userinput(input: string) {
-    if (input) {
-    this.userinfo=input;
-    }
+  getinfo(username: string, email: string, password: string) {
+    this.userinfo= JSON.stringify([username, email, password]);
   }
+
+  //BEGIN HTTP STUFF
+  apiRoot: string = "http://httpbin.org";
+  constructor(private http: HttpClient) { }
 
   doPOST() {
     console.log("POST");

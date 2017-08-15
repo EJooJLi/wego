@@ -8,7 +8,7 @@ import { TestComponent } from './test.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpComponent } from './httptest.component';
 import { UserComponent } from './user.component';
-import {Routes, RouterModule} from "@angular/router";
+import { Routes, RouterModule } from "@angular/router";
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
