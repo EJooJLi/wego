@@ -38,18 +38,18 @@ exports.getbyId = function (req, res) {
       return res.send(err);
     }
   });
-}
+};
 
 /** update function to update User by id. */
 exports.update = function (req, res) {
     User.updateById(req.params.id, req.body, function(err, result) {
         if (!err) {
-            return res.send(req.body);
+            return res.send("Successfully updated");
         } else {
             return res.send(err); // 500 error
         }
     });
-}
+};
 
 /** remove function to remove User by id. */
 exports.removeById = function (req, res) {
@@ -61,4 +61,4 @@ exports.removeById = function (req, res) {
             return res.send(err); // 500 error
         }
     });
-}
+};
