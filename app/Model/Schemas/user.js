@@ -34,13 +34,7 @@ var UserSchema = new Schema({
   location: {
     type: String,
     required: true
-  },
-  updated_at: {
-    type: Date,
-    required: true,
-    default: Date.now
-  }
-});
+  }}, {timestamps: true}); // Options: Add timestamps for createdAt and updatedAt
 
 UserSchema.statics = {
     get: function(query, callback) {
