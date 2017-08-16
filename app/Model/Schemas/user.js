@@ -2,11 +2,12 @@
 //This creates a User schema using Schema in mongoose
 
 //First we import the modules needed
-var mongoose = require('mongoose'),
-  Schema = mongoose.Schema;
+var mongoose = require("mongoose"),
+  Schema = mongoose.Schema,
+  bcrypt = require("bcrypt"),
+  SALT_WORK_FACTOR = 10;
 
 //Then we declare a User Schema to identify the actual format of the data
-
 var UserSchema = new Schema({
   id: {
     type: Number
@@ -34,7 +35,30 @@ var UserSchema = new Schema({
   location: {
     type: String,
     required: true
-  }}, {timestamps: true}); // Options: Add timestamps for createdAt and updatedAt
+  }},
+{
+  timestamps: true
+}); // Options: Add timestamps for createdAt and updatedAt
+
+UserSchema.pre("save", function(next){
+  var user = this;
+  if (!user.isModified("password")) {
+    return next();
+  }
+
+  bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt){
+    if (err) {
+      return next(err);
+    }
+    bcrypt.hash(user.password, salt, function(err, hash){
+      if (err) {
+        return next(err);
+      }
+      user.password = hash;
+      next();
+    });
+  });
+});
 
 UserSchema.statics = {
     get: function(query, callback) {

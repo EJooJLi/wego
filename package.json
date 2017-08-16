@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/EJooJLi/wego/issues"
   },
-  "homepage": "https://github.com/EJooJLi/wego#readme"
+  "homepage": "https://github.com/EJooJLi/wego#readme",
+  "dependencies": {
+    "bcrypt": "^1.0.2"
+  }
 }
