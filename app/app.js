@@ -6,18 +6,18 @@ var cookieParser = require("cookie-parser"); // A cookieParser middleware
 var mongoose = require("mongoose");
 //Require all wego dependencies
 var db = require("./Model/db");
-var userRoutes = require("./Controller/Routes/userRoutes");
-// var User = require("./Controller/user.js");
-var controller = require("./Controller/user.js");
+var user_controller = require("./Controller/user");
 var User = mongoose.model("User");
 
 //Creating an Express app
 var app = express();
 
-
 //**Creating a Router object - This is only needed if we dont create userRoutes up top
 // var router = express.Router();
 //var someRouter = express.Router(); Load the individual routers
+var router = express.Router();
+
+
 var updateId = function(req, res, next) {
 
 };
@@ -26,77 +26,23 @@ var updateId = function(req, res, next) {
 
     //First load the global ones that apply to everytime (application level)
     // app.use(morgan());
-app.use(bodyParser.json());
 
-    //Then define the ones that apply to specific paths (route level)
-    //app.use('/path', someRouter);<--- Use middleware at this someRouter
-    // app.use(router); - ** Another one that is not needed if we create individual routers
-app.use("./users", userRoutes);
-    // app.use(express.static(path.join(__dirname, "public")));
+app.use(router);
+router.use(bodyParser.json());
 
-app.get("/users", controller.get); //<---testing out controller functions
+require("./Controller/Routes/userRoutes")(router);
 
-// GET
-// app.get("/users", function(req, res){
-//   User.find({}, function(err, doc){
-//     if (!err) {
-//       res.json(doc);
-//     } else {
-//       throw(err);
-//     }
-//   });
-// });
-
-// POST
-app.post("/users", function(req, res){
-  var newUser = new User(req.body);
-  console.log(req.body);
-  if (!req.body.username) {
-    handleError(res, "Invalid input", "Must provide a username.", 400);
-  }
-  newUser.save(function(err, doc){
-    if (!err) {
-      res.send(doc);
-    } else {
-      throw(err);
-    }
-  });
-});
-
-// GET by ID
-app.get("/users/:id", function(req, res){
-  User.findById(req.params.id, function(err, doc) {
-    if (err) {
-      res.send(err);
-    }
-    if (doc) {
-      res.send(doc);
-    } else {
-      res.send("No user found with that ID");
-    }
-  });
-});
-
-// PUT
-app.put("/users/:id", function(req, res){
-  User.findByIdAndUpdate(req.params.id, req.body, function(err, doc){
-    if (err) {
-      res.status(500).send(err);
-    } else {
-      doc.firstname = req.body.firstname || doc.firstname;
-      doc.lastname = req.body.lastname || doc.lastname;
-      doc.username = req.body.username || doc.username;
-      doc.password = req.body.password || doc.password;
-      doc.location = req.body.location || doc.location;
-      doc.save(function(err, cb){
-        if (err) {
-          res.status(500).send(err);
-        }
-        res.send(doc);
-      })
-    }
-  });
-});
+// CRUD Operations
+// GET showing all users
+router.get("/users", user_controller.get);
+// GET showing a specific user using userId
+router.get("/users/:id", user_controller.getbyId)
+// POST and create a new user
+router.post("/users", user_controller.create);
+// PUT to update a user by userId
+router.put("/users/:id", user_controller.update);
+// DELETE to delete a user by userId
+router.delete("/users/:id", user_controller.removeById);
 
 // Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
