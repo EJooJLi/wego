@@ -44,7 +44,7 @@ exports.getbyId = function (req, res) {
 exports.update = function (req, res) {
     User.updateById(req.params.id, req.body, function(err, result) {
         if (!err) {
-            return res.json(result);
+            return res.send(req.body);
         } else {
             return res.send(err); // 500 error
         }
@@ -55,7 +55,7 @@ exports.update = function (req, res) {
 exports.removeById = function (req, res) {
     User.findByIdAndRemove({_id: req.params.id}, function(err, result) {
         if (!err) {
-            return res.json("User " + result.username + " was removed");
+            return res.send("User " + result.username + " was removed");
         } else {
             console.log(err);
             return res.send(err); // 500 error

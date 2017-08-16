@@ -42,6 +42,25 @@ var UserSchema = new Schema({
   }
 });
 
+UserSchema.statics = {
+    get: function(query, callback) {
+      this.findOne(query, callback);
+    },
+    getAll: function(query, callback) {
+      this.find(query, callback);
+    },
+    updateById: function(id, updateData, callback) {
+      this.update(id, {$set: updateData}, callback);
+    },
+    remove: function(removeData, callback) {
+      this.remove(removeData, callback);
+    },
+    create: function(data, callback) {
+      var user = new this(data);
+      user.save(callback);
+    }
+}
+
 //Now we set a model using the UserSchema that can be used by our app
 //Export the Schema as User that can be required by our app
 module.exports = mongoose.model('User', UserSchema);
