@@ -91,7 +91,7 @@ UserSchema.statics = {
     },
     create: function(data, callback) {
       var user = new this(data);
-      user.save(callback);
+      this.save(callback);
     }
 }
 
