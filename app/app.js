@@ -1,8 +1,8 @@
 //Require the stock dependencies
 var express = require("express"); // For built-in middleware
-//var morgan = require("morgan"); // A logger middleware
+var morgan = require("morgan"); // A logger middleware
 var bodyParser = require("body-parser"); // A bodyParser middleware
-//var cookieParser = require("cookie-parser"); // A cookieParser middleware
+var cookieParser = require("cookie-parser"); // A cookieParser middleware
 var mongoose = require("mongoose");
 
 //Require all wego dependencies
@@ -18,11 +18,6 @@ var app = express();
 //var someRouter = express.Router(); Load the individual routers
 var router = express.Router();
 
-
-var updateId = function(req, res, next) {
-
-};
-
 //Load the middelware onto the app in sequential order (app.use)
 
     //First load the global ones that apply to everytime (application level)
@@ -30,12 +25,12 @@ var updateId = function(req, res, next) {
 
 app.use(router);
 
+// CORS posting
 router.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
-
 router.use(bodyParser.json());
 
 require("./Controller/Routes/userRoutes")(router);
@@ -60,6 +55,7 @@ function handleError(res, reason, message, code) {
 
 //Start the HTTP listener
 app.listen(3000);
+console.log("listening");
 
 //Export the app for testing
 module.exports = app;

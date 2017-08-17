@@ -32,6 +32,9 @@ var UserSchema = new Schema({
     type: String,
     required: [true, "Create a password, please!"]
   },
+  salt: {
+    type: String
+  },
   location: {
     type: String,
     required: true
@@ -40,25 +43,38 @@ var UserSchema = new Schema({
   timestamps: true
 }); // Options: Add timestamps for createdAt and updatedAt
 
+/**
+* A pre save hook to hash the password using bcrypt
+*/
 UserSchema.pre("save", function(next){
   var user = this;
-  if (!user.isModified("password")) {
-    return next();
+  if (user.password && user.isModified("password")) {
+    user.salt = bcrypt.genSaltSync(SALT_WORK_FACTOR);
+    var hash = user.hashPassword(user.password);
   }
-
-  bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt){
-    if (err) {
-      return next(err);
-    }
-    bcrypt.hash(user.password, salt, function(err, hash){
-      if (err) {
-        return next(err);
-      }
-      user.password = hash;
-      next();
-    });
-  });
+  user.password = hash;
+  next();
 });
+
+/**
+* Function - Hashing a password
+*/
+UserSchema.methods.hashPassword = function(password) {
+  // if salt has been assigned, hash the password
+  if (this.salt && password) {
+    password = bcrypt.hashSync(password, this.salt)
+    return password;
+  } else {
+    return password;
+  }
+};
+
+/**
+* Function - Authenticating user by matching passwords
+*/
+UserSchema.methods.authenticate = function(password) {
+  return this.password === this.hashPassword(password);
+};
 
 UserSchema.statics = {
     get: function(query, callback) {
@@ -67,7 +83,7 @@ UserSchema.statics = {
     getAll: function(query, callback) {
       this.find(query, callback);
     },
-    updateById: function(id, updateData, callback) {
+    findOneAndUpdate: function(id, updateData, callback) {
       this.update(id, {$set: updateData}, callback);
     },
     remove: function(removeData, callback) {
