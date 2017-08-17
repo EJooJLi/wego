@@ -10,9 +10,19 @@ import { Component } from '@angular/core';
 
 export class ProfileComponent {
 
-  Username="James"
-  Email="JamesLi@pug.com"
-  Password="******"
-  Zipcode="90210"
+  userinformation = ["Username", "Email", "Password", "Zipcode"];
+  //the details will eventually be a GET request from the server
+  details = ["Pug", "Pugs@Gmail.com", "********", "90210"];
+  test = this.details[0];
+
+  //edit the list here, and it will automatically update the HTML code
+  weatherlist = ["Cold", "Hot", "Warm", "Sunny"];
+  activitylist = ["Hiking", "Concerts", "Dining", "Picnics"];
+
+  saveinformation() {
+    //The user inputted information becomes the updated one.
+    this.details = this.details;
+    console.log(this.details);
+  }
 
 }
