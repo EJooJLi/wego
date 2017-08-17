@@ -41,20 +41,21 @@ var UserSchema = new Schema({
 }); // Options: Add timestamps for createdAt and updatedAt
 
 UserSchema.pre("save", function(next){
+  // Caching this into a user variable
   var user = this;
   if (!user.isModified("password")) {
     return next();
-  }
-
+  };
+  // If password was modified, hashing it
   bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt){
     if (err) {
       return next(err);
-    }
-    bcrypt.hash(user.password, salt, function(err, hash){
+    };
+    bcrypt.hash(user.password, salt, function(err, hashedPassword){
       if (err) {
         return next(err);
-      }
-      user.password = hash;
+      };
+      user.password = hashedPassword;
       next();
     });
   });
@@ -67,8 +68,8 @@ UserSchema.statics = {
     getAll: function(query, callback) {
       this.find(query, callback);
     },
-    updateById: function(id, updateData, callback) {
-      this.update(id, {$set: updateData}, callback);
+    update: function(id, updateData, callback) {
+      this.findByIdAndUpdate(id, {$set: updateData}, callback);
     },
     remove: function(removeData, callback) {
       this.remove(removeData, callback);

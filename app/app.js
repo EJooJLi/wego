@@ -18,11 +18,6 @@ var app = express();
 //var someRouter = express.Router(); Load the individual routers
 var router = express.Router();
 
-
-var updateId = function(req, res, next) {
-
-};
-
 //Load the middelware onto the app in sequential order (app.use)
 
     //First load the global ones that apply to everytime (application level)
@@ -53,6 +48,7 @@ function handleError(res, reason, message, code) {
 
 //Start the HTTP listener
 app.listen(3000);
+console.log("listening");
 
 //Export the app for testing
 module.exports = app;

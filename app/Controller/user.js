@@ -42,13 +42,20 @@ exports.getbyId = function (req, res) {
 
 /** update function to update User by id. */
 exports.update = function (req, res) {
-    User.updateById(req.params.id, req.body, function(err, result) {
-        if (!err) {
-            return res.send("Successfully updated");
-        } else {
-            return res.send(err); // 500 error
-        }
+    User.findOneAndUpdate(req.params.id, {$set: req.body}, {new: true, runValidators: true}, function(err, result){
+      if (!err) {
+        res.send(result);
+      } else {
+        res.send(err);
+      }
     });
+    // User.findByIdAndUpdte(req.params.id, {$set: req.body}, function(err, result) {
+    //     if (!err) {
+    //         return res.send("Successfully updated");
+    //     } else {
+    //         return res.send(err); // 500 error
+    //     }
+    // });
 };
 
 /** remove function to remove User by id. */
