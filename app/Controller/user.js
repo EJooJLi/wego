@@ -2,14 +2,14 @@
 
 // User object and functions that is declared in the controller/user.js file
 // Require the Schema and creating the User object
-var User = require('../Model/Schemas/User');
+var UserSchema = require('../Model/Schemas/User');
 
 /***
   User functions and the logic behind the CRUD Operations
 ***/
 /** create function to create User. */
 exports.create = function (req, res) {
-  User.create(req.body, function(err, result){
+  UserSchema.create(req.body, function(err, result){
     if (!err) {
       return res.send(result); // Posting the created user
     } else {
@@ -20,7 +20,7 @@ exports.create = function (req, res) {
 
 /** get function to get all Users. */
 exports.get = function (req, res) {
-  User.getAll(req.body, function(err, result){
+  UserSchema.getAll(req.body, function(err, result){
     if (!err) {
         return res.send(result); // Posting all the users
     } else {
@@ -31,7 +31,7 @@ exports.get = function (req, res) {
 
 /** get function to get user by ID */
 exports.getbyId = function (req, res) {
-  User.get({_id: req.params.id}, function(err, result){
+  UserSchema.get({_id: req.params.id}, function(err, result){
     if (!err) {
       return res.send(result);
     } else {
@@ -42,25 +42,19 @@ exports.getbyId = function (req, res) {
 
 /** update function to update User by id. */
 exports.update = function (req, res) {
-    User.findOneAndUpdate(req.params.id, {$set: req.body}, {new: true, runValidators: true}, function(err, result){
-      if (!err) {
-        res.send(result);
-      } else {
-        res.send(err);
-      }
-    });
-    // User.findByIdAndUpdte(req.params.id, {$set: req.body}, function(err, result) {
-    //     if (!err) {
-    //         return res.send("Successfully updated");
-    //     } else {
-    //         return res.send(err); // 500 error
-    //     }
-    // });
+  console.log(req.params.id);
+  UserSchema.findOneAndUpdate(req.params.id, {$set: req.body}, {new: true, runValidators: true, upsert: true}, function(err, result){
+    if (!err) {
+      res.send(result);
+    } else {
+      res.send(err);
+    }
+  });
 };
 
 /** remove function to remove User by id. */
 exports.removeById = function (req, res) {
-    User.findByIdAndRemove({_id: req.params.id}, function(err, result) {
+    UserSchema.findByIdAndRemove({_id: req.params.id}, function(err, result) {
         if (!err) {
             return res.send("User " + result.username + " was removed");
         } else {
