@@ -1,8 +1,8 @@
 //Require the stock dependencies
 var express = require("express"); // For built-in middleware
-var morgan = require("morgan"); // A logger middleware
+//var morgan = require("morgan"); // A logger middleware
 var bodyParser = require("body-parser"); // A bodyParser middleware
-var cookieParser = require("cookie-parser"); // A cookieParser middleware
+//var cookieParser = require("cookie-parser"); // A cookieParser middleware
 var mongoose = require("mongoose");
 
 //Require all wego dependencies
@@ -29,6 +29,13 @@ var updateId = function(req, res, next) {
     // app.use(morgan());
 
 app.use(router);
+
+router.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 router.use(bodyParser.json());
 
 require("./Controller/Routes/userRoutes")(router);

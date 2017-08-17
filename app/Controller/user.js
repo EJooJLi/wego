@@ -11,6 +11,7 @@ var User = require('../Model/Schemas/User');
 exports.create = function (req, res) {
   User.create(req.body, function(err, result){
     if (!err) {
+      console.log("success");
       return res.send(result); // Posting the created user
     } else {
       return res.send(err); // Error handling

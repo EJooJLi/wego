@@ -4,6 +4,7 @@ import { FormsModule }   from '@angular/forms'; // <-- NgModel lives here
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 import { SignUpComponent } from './signup.component';
 import { SignInComponent } from './signin.component';
 import { NavBarComponent } from './navbar.component';
@@ -17,7 +18,7 @@ const routes: Routes = [
   {path: 'signup', component: SignUpComponent},
   {path: 'signin', component: SignInComponent},
   {path: 'profile', component: ProfileComponent},
-  {path: '**', component: HomeComponent}
+  // {path: '**', component: HomeComponent}
 ];
 
 @NgModule({
@@ -33,7 +34,8 @@ const routes: Routes = [
     BrowserModule,
     FormsModule, // <-- import the FormsModule before binding with [(ngModel)]
     HttpClientModule,
-    RouterModule.forRoot(routes, {useHash: true}) //<-- for routing
+    RouterModule.forRoot(routes, {useHash: false}), //<-- for routing
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
