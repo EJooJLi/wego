@@ -9,11 +9,11 @@ import { Component } from '@angular/core';
 })
 
 export class ProfileComponent {
+  //the information will eventually be a GET request from the server
+  testinformation = {Username: "Pug", Email: "Pug@pug.com", Password: "*******", Height: "short"}
 
-  userinformation = ["Username", "Email", "Password", "Zipcode"];
-  //the details will eventually be a GET request from the server
-  details = ["Pug", "Pugs@Gmail.com", "********", "90210"];
-  test = this.details[0];
+  infofields = Object.keys(this.testinformation);
+  infodetails = Object.values(this.testinformation);
 
   //edit the list here, and it will automatically update the HTML code
   weatherlist = ["Cold", "Hot", "Warm", "Sunny"];
@@ -21,8 +21,8 @@ export class ProfileComponent {
 
   saveinformation() {
     //The user inputted information becomes the updated one.
-    this.details = this.details;
-    console.log(this.details);
+    this.infodetails = this.infodetails;
+    console.log(this.infodetails);
   }
 
 }

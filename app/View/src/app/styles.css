@@ -178,3 +178,27 @@ li {
   display: inline-block;
   width: 45%;
 }
+
+#userinfo {
+  background-color: rgba(0,0,0,0);
+  outline: none;
+  cursor: pointer;
+  font-family: 'Bubbler One', sans-serif;
+  font-size: 15px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  border-radius: 5px;
+  padding: 2px 4px 2px 4px;
+}
+
+#userinfo:hover {
+  background-color: rgba(255,255,255,0.3);
+  outline: none;
+  cursor: pointer;
+}
+
+#userinfo:focus {
+  background-color: rgba(255,255,255,0.7);
+  outline: none;
+  cursor: pointer;
+}
