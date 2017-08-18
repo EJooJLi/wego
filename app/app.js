@@ -1,8 +1,8 @@
 //Require the stock dependencies
 var express = require("express"); // For built-in middleware
-// var morgan = require("morgan"); // A logger middleware
+//var morgan = require("morgan"); // A logger middleware
 var bodyParser = require("body-parser"); // A bodyParser middleware
-var cookieParser = require("cookie-parser"); // A cookieParser middleware
+//var cookieParser = require("cookie-parser"); // A cookieParser middleware
 var mongoose = require("mongoose");
 
 //Require all wego dependencies
