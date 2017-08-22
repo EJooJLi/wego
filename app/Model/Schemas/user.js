@@ -56,17 +56,16 @@ UserSchema.pre("save", function(next){
   next();
 });
 
-// /**
-// * A pre save hook to hash the password using bcrypt
-// */
+/**
+* A post update hook to hash the password using bcrypt
+*/
 // UserSchema.pre("update", function(next){
-//   var user = this;
-//   if (user.password && user.isModified("password")) {
-//     user.salt = bcrypt.genSaltSync(SALT_WORK_FACTOR);
-//     var hash = user.hashPassword(user.password);
-//   }
-//   user.password = hash;
-//   next();
+//   console.log(this);
+//   var password = this._conditions.password;
+//   var salt = this._conditions.salt;
+//   var hash = bcrypt.hashSync(password, salt);
+//   password = hash;
+//   console.log(hash);
 // });
 
 /**
