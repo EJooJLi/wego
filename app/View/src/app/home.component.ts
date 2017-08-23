@@ -35,4 +35,11 @@ export class HomeComponent {
     let url = `http://localhost:3000/weather`;
     this.http.post(url, this.userinfo, 'Access-Control-Allow-Origin: *').subscribe(res => console.log(res));
   }
+
+  getinfo() {
+
+    console.log("GET");
+    let url = `http://localhost:3000/weather`;
+    this.http.get(url, this.userinfo).subscribe(res => console.log(res.json()));
+  }
 }

@@ -8,6 +8,7 @@
     <input type="text" class="forminputs" id="planinput" #plans (keyup)="0">
     <!-- the key up allows for "prompt.value" to be updated live-->
     <button type="submit" class="submit" (click)="formsubmit(plans.value)" (click)="sendinfo()"> Let's go! </button>
+    <button type="submit" class="submit" (click)="getinfo()"> GET! </button>
   </div>
   </form>
 </div>

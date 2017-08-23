@@ -24,18 +24,21 @@ let weatherapi = {
 };
 
 //I don't yet know how to do callback functions... So there's a time delay on here for now.
-// setTimeout(function() {
-//
-//   var weatherapifull=`${weatherapi.root}${coordinates.coords}${weatherapi.units}${weatherapi.key}`
-//   console.log(weatherapifull);
-//   request(weatherapifull, function (error, response, body) {
-//     let details = JSON.parse(body)
-//     console.log(details);
-//   });
-// }, 1000);
+setTimeout(function() {
+  var weatherapifull=`${weatherapi.root}${coordinates.coords}${weatherapi.units}${weatherapi.key}`
+  console.log(weatherapifull);
+  request(weatherapifull, function (error, response, body) {
+    var details = JSON.parse(body)
+    console.log(details);
+  });
+}, 1000);
 
 router.post("/weather", function (req, res) {
   console.log(res);
+})
+
+router.get("/weather", function (req, res) {
+  res.send({text: details});
 })
 
 app.listen(3000);
