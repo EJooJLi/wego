@@ -1,6 +1,10 @@
 //This Component is for the header of the page.
 
 import { Component } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpModule, Http, URLSearchParams, RequestOptions } from '@angular/http';
+import { Headers } from '@angular/http';
+
 
 @Component({
   selector: 'header',
@@ -17,12 +21,18 @@ export class HomeComponent {
     this.shownav=!this.shownav;
   }
 
-  submits = [''];
+  constructor(private http: Http) { }
 
-  formsubmit(input: string) {
-    if (input) {
-    this.submits.push(input);
-    }
+  userinfo={};
+
+  formsubmit(info: string) {
+    this.userinfo={location: info};
   }
 
+  sendinfo() {
+
+    console.log("POST");
+    let url = `http://localhost:3000/weather`;
+    this.http.post(url, this.userinfo, 'Access-Control-Allow-Origin: *').subscribe(res => console.log(res));
+  }
 }

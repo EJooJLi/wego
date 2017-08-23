@@ -3,8 +3,6 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { HttpModule, Http, URLSearchParams, RequestOptions } from '@angular/http';
 import { Headers } from '@angular/http';
-import { citylist } from './citylist';
-import { countrycodes } from './countrycodes'
 
 @Component({
   selector: 'signin',

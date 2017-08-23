@@ -1,16 +1,19 @@
-//This code successfully takes in ANY address, pings the Googlemaps API to get coordinates.
-//The coordinates are then sent to the weather API to get weather information.
+//The GoogleAPI coordinates are sent to the weather API to get weather information.
 
-var express = require("express"); // For built-in middleware
-var request = require('request');
+let express = require('express'); // For built-in middleware
+let request = require('request');
+let coordinates = require('./googleapi.js')
+var app = express();
+var router = express.Router();
+var bodyParser = require("body-parser"); // A bodyParser middleware
+app.use(router);
 
-let googleapi = {
-  key: "&key=AIzaSyByfXpktliHp3ihiDCBRcDy8JU800DwFZ0",
-  root: "https://maps.googleapis.com/maps/api/geocode/json?address=",
-  address: "4400+Lone+Tree+Drive,+Plano,+Texas"
-};
-
-let googleapifull=`${googleapi.root}${googleapi.address}${googleapi.key}`
+router.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+router.use(bodyParser.json());
 
 let weatherapi = {
   key: "&APPID=740db4574e5fd4a81b4608e9f5d615e6",
@@ -20,28 +23,20 @@ let weatherapi = {
   units: "&units=imperial"
 };
 
-var lat="";
-var long="";
-
-request(googleapifull, function (error, response, body) {
-  let details = JSON.parse(body)
-  lat=details.results[0].geometry.location.lat;
-  long=details.results[0].geometry.location.lng;
-  console.log(lat, long); // Print the stuff
-  return(lat);
-});
-
 //I don't yet know how to do callback functions... So there's a time delay on here for now.
-setTimeout(function() {
-  weatherapi.lat = lat;
-  weatherapi.long = long;
-  console.log(weatherapi.lat, weatherapi.long);
+// setTimeout(function() {
+//
+//   var weatherapifull=`${weatherapi.root}${coordinates.coords}${weatherapi.units}${weatherapi.key}`
+//   console.log(weatherapifull);
+//   request(weatherapifull, function (error, response, body) {
+//     let details = JSON.parse(body)
+//     console.log(details);
+//   });
+// }, 1000);
 
-  var weatherapifull=`${weatherapi.root}lat=${weatherapi.lat}&lon=${weatherapi.long}${weatherapi.units}${weatherapi.key}`
-  console.log(weatherapifull);
+router.post("/weather", function (req, res) {
+  console.log(res);
+})
 
-  request(weatherapifull, function (error, response, body) {
-    let details = JSON.parse(body)
-    console.log(details);
-  });
-}, 3000);
+app.listen(3000);
+console.log("listening");
