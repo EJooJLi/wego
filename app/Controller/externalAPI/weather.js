@@ -2,44 +2,55 @@
 
 let express = require('express'); // For built-in middleware
 let request = require('request');
-let coordinates = require('./googleapi.js')
-var app = express();
-var router = express.Router();
-var bodyParser = require("body-parser"); // A bodyParser middleware
-app.use(router);
-
-router.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
+var NodeGeocoder = require("node-geocoder");
+var HttpsAdapter = require('node-geocoder/lib/httpadapter/httpsadapter.js')
+var httpAdapter = new HttpsAdapter(null, {
+  headers: {
+    'user-agent': 'My application <email@domain.com>',
+    'X-Specific-Header': 'Specific value'
+  }
 });
-router.use(bodyParser.json());
 
-let weatherapi = {
-  key: "&APPID=740db4574e5fd4a81b4608e9f5d615e6",
-  root: "http://api.openweathermap.org/data/2.5/weather\?",
-  lat: "",
-  long: "",
-  units: "&units=imperial"
-};
+// This is a placeholder for a request, with the address format
+var req = {address:"4400 Lone Tree Drive, Plano, Texas"};
 
-//I don't yet know how to do callback functions... So there's a time delay on here for now.
-setTimeout(function() {
-  var weatherapifull=`${weatherapi.root}${coordinates.coords}${weatherapi.units}${weatherapi.key}`
-  console.log(weatherapifull);
+// Assigning params for NodeGeocoder, using our API Key and Google Map API
+var geocoder = NodeGeocoder({
+  provider: "google",
+  apiKey: "AIzaSyByfXpktliHp3ihiDCBRcDy8JU800DwFZ0",
+  httpAdapter: httpAdapter,
+  formatter: null
+});
+
+// The actual processing, geocoding an address and sends it to
+// WeatherAPI to get the weather data
+// Change the req.address to req when module is complete
+// Also need to export this method so that it can be used in
+// app.js
+geocoder.geocode(req.address, function(err, res){
+// Assigning latitude and longitude
+  var lat = res[0].latitude;
+  var lng = res[0].longitude;
+
+// Assigning params for weatherAPI
+  let weatherapi = {
+    key: "&APPID=740db4574e5fd4a81b4608e9f5d615e6",
+    root: "http://api.openweathermap.org/data/2.5/weather\?",
+    coord: {
+      "lon": lng,
+      "lat": lat
+    },
+    units: "&units=imperial"
+  };
+  // Creating a string for API use
+  var coords="lat="+lat+"&lon="+lng;
+  // Compose the full API search string
+  var weatherapifull=`${weatherapi.root}${coords}${weatherapi.units}${weatherapi.key}`
   request(weatherapifull, function (error, response, body) {
-    var details = JSON.parse(body)
-    console.log(details);
+      console.log(body); // Print to test results
+      return body;
+      // Need error handler
   });
-}, 1000);
+});
 
-router.post("/weather", function (req, res) {
-  console.log(res);
-})
-
-router.get("/weather", function (req, res) {
-  res.send({text: details});
-})
-
-app.listen(3000);
-console.log("listening");
+// Export this out to use on app.js
