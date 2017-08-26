@@ -14,12 +14,12 @@
     <h2 style="text-align: center;">Preferences</h2><br/>
     <div id="preferences">
       <h3>Weather</h3>
-        <div *ngFor="let weather of weatherlist">
-          <label><input type="checkbox" name="weather" value="{{weather}}" #wtype> {{wtype.value}}</label>
+        <div *ngFor="let weather of weatherlist; let i = index" [attr.data-index]="i">
+          <label><input type="checkbox" name="weather" [(ngModel)]="weathercheck[weatherlist[i]]" value="{{weather}}" #wtype> {{wtype.value}}</label>
         </div>
       <h3>Activities</h3>
-        <div *ngFor="let acts of activitylist">
-          <label><input type="checkbox" name="activity" value="{{acts}}" #atype> {{atype.value}}</label>
+        <div *ngFor="let acts of activitylist; let i = index" [attr.data-index]="i">
+          <label><input type="checkbox" name="activity" [(ngModel)]="activitycheck[this.activitylist[i]]" value="{{acts}}" #atype> {{atype.value}}</label>
         </div>
     </div> <!--preferences -->
   </div> <!--profile deets -->

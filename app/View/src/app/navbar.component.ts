@@ -12,6 +12,7 @@ import { Component } from '@angular/core';
       <button type="button" class="navbutton" routerLink="../signup"><p>Sign Up</p></button>
       <button type="button" class="navbutton" routerLink="../signin"><p>Sign In</p></button>
       <button type="button" class="navbutton" routerLink="../profile"><p>MyProfile</p></button>
+      <button type="button" class="navbutton" routerLink="../feed"><p>Feed</p></button>
     </div>
   `,
   styleUrls: ['./styles.css']

@@ -9,6 +9,7 @@ import { SignUpComponent } from './signup.component';
 import { SignInComponent } from './signin.component';
 import { NavBarComponent } from './navbar.component';
 import { ProfileComponent } from './profile.component';
+import { FeedComponent } from './feed.component'
 import { Routes, RouterModule } from "@angular/router";
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'signup', component: SignUpComponent},
   {path: 'signin', component: SignInComponent},
   {path: 'profile', component: ProfileComponent},
+  {path: 'feed', component: FeedComponent}
   // {path: '**', component: HomeComponent}
 ];
 
@@ -28,7 +30,8 @@ const routes: Routes = [
     SignUpComponent,
     SignInComponent,
     NavBarComponent,
-    ProfileComponent
+    ProfileComponent,
+    FeedComponent
   ],
   imports: [
     BrowserModule,
