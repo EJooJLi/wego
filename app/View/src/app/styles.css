@@ -17,7 +17,6 @@ h1 {
   font-weight: 400;
   color: white ;
   background-color: rgba(48, 118, 85, 0.5);
-  margin-top: 50px;
 }
 
 h2 {
@@ -36,34 +35,7 @@ li {
   font-size: 15px;
 }
 
-#menubutton, #menubutton:visited {
-  position: fixed;
-  background-image: url('https://cdn3.iconfinder.com/data/icons/web-15/128/RSSvgMenu-2-512.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 40px;
-  height: 40px;
-  background-color: rgba(0,0,0,0);
-  margin-top: 4px;
-  margin-left: 4px;
-  outline: 0;
-}
-
-#menubutton:hover {
-  width: 42px;
-  height: 42px;
-}
-
-.navbutton, .navbutton:active, .navbutton:visited, .navbutton:focus {
-  background-color: rgba(255, 255, 255, 0);
-  width: auto;
-  text-align: center;
-  outline: 0;
-  margin-left: 10px;
-}
-
 #navbar {
-  background-color: rgba(255, 255, 255, .9);
   height: 50px;
   position: fixed;
   top: 0px;
@@ -86,6 +58,39 @@ li {
 
 #navbar p:focus, #navbar p:active {
   color: blue;
+}
+
+#testbutton {
+  width: 100px;
+  height: 100px;
+  border-radius: 80px;
+  margin-top: -50px;
+  margin-left: -50px;
+  background-color: rgb(172, 235, 254);
+}
+
+#testbutton:hover {
+  height: 400px;
+  width: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 400px;
+}
+
+#buttons, #buttons:hover {
+  position: fixed;
+  left: 10px;
+  top: 10px;
+  box-sizing: border-box
+}
+
+.navbutton, .navbutton:active, .navbutton:visited, .navbutton:focus {
+  background-color: rgba(255, 255, 255, 0);
+  width: auto;
+  text-align: center;
+  outline: 0;
+  margin-left: 10px;
+  margin-bottom: 10px;
 }
 
 .UserInput {
@@ -225,7 +230,6 @@ li {
   margin-bottom: 20px;
   width: 90%;
   display: inline-block;
-  /*background-color: rgba(255,255,255,0.7);*/
   border-radius: 10px;
 }
 

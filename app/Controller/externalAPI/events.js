@@ -23,7 +23,7 @@ var geocoder = NodeGeocoder({
 });
 
 // The actual processing, geocoding an address and sends it to
-// WeatherAPI to get the weather data
+// EventsAPI to get the event data
 // Change the req.address to req when module is complete
 // Also need to export this method so that it can be used in
 // app.js
@@ -32,22 +32,22 @@ geocoder.geocode(req.address, function(err, res){
   var lat = res[0].latitude;
   var lng = res[0].longitude;
 
-// Assigning params for weatherAPI
-  let weatherapi = {
-    key: "&APPID=740db4574e5fd4a81b4608e9f5d615e6",
-    root: "http://api.openweathermap.org/data/2.5/weather\?",
+// Assigning params for eventAPI
+  let eventapi = {
+    key: "&app_key=Msm3HTBsBfRVV6Ps",
+    root: "http://api.eventful.com/json/events/search?",
     coord: {
       "lon": lng,
       "lat": lat
     },
-    units: "&units=imperial"
+    radius: "&within=10"
   };
   // Creating a string for API use
-  var coords="lat="+lat+"&lon="+lng;
+  var coords="&location="+lat+","+lng;
   // Compose the full API search string
-  var weatherapifull=`${weatherapi.root}${coords}${weatherapi.units}${weatherapi.key}`
+  var weatherapifull=`${eventapi.root}${coords}${eventapi.radius}${eventapi.key}`
   request(weatherapifull, function (error, response, body) {
-      console.log(JSON.parse(body)); // Print to test results
+      console.log(JSON.parse(body.events)); // Print to test results
       return body;
       // Need error handler
   });

@@ -6,14 +6,16 @@ import { Component } from '@angular/core';
   template:
   `
   <nav id="navbar">
-    <button type="button" id="menubutton" (click)="navtoggle()"></button>
-    <div [hidden]="!shownav" style="margin-left: 50px; margin-top: 15px;">
-      <button type="button" class="navbutton" routerLink="../home"><p>Home</p></button>
-      <button type="button" class="navbutton" routerLink="../signup"><p>Sign Up</p></button>
-      <button type="button" class="navbutton" routerLink="../signin"><p>Sign In</p></button>
-      <button type="button" class="navbutton" routerLink="../profile"><p>MyProfile</p></button>
-      <button type="button" class="navbutton" routerLink="../feed"><p>Feed</p></button>
+    <div id="testbutton" (mouseenter)="navtoggle()" (mouseleave)="navtoggle()">
+      <div [hidden]="!shownav" id="buttons">
+        <button type="button" class="navbutton" routerLink="../home"><p>Home</p></button><br/>
+        <button type="button" class="navbutton" routerLink="../signup"><p>Sign Up</p></button><br/>
+        <button type="button" class="navbutton" routerLink="../signin"><p>Sign In</p></button><br/>
+        <button type="button" class="navbutton" routerLink="../profile"><p>MyProfile</p></button><br/>
+        <button type="button" class="navbutton" routerLink="../feed"><p>Feed</p></button><br/>
+      </div>
     </div>
+  </nav>
   `,
   styleUrls: ['./styles.css']
 
@@ -21,7 +23,7 @@ import { Component } from '@angular/core';
 
 export class NavBarComponent {
 
-  shownav = true;
+  shownav = false;
 
   navtoggle () {
     this.shownav=!this.shownav;

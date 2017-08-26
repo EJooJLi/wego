@@ -15,7 +15,8 @@ export class FeedComponent {
     [
     {title: "How about a hike?", date: "2017-08-03", content: "Cool weather, cloudy skies, beautiful views at Yosemite"},
     {title: "Visit the museum?", date: "2017-08-05", content: "Rainy days don't have to ruin your plans!"},
-    {title: "Free concert!", date: "2017-08-01", content: "But it's free"}
+    {title: "Free concert!", date: "2017-08-01", content: "But it's free"},
+    {title: "It's going to snow!", date: "2017-08-04", content: "Let it snow, let it snow"}
     ]
 
   ngOnInit() {
