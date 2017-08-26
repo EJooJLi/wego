@@ -18,7 +18,6 @@ export class FeedComponent {
     {title: "Free concert!", date: "2017-08-01", content: "But it's free"}
     ]
 
-
   ngOnInit() {
     //sort that JSON list!
     this.testcards.sort((a, b) => {
