@@ -41,6 +41,6 @@ const routes: Routes = [
     HttpModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, NavBarComponent]
 })
 export class AppModule { }

@@ -15,8 +15,8 @@ h1 {
   font-size: 100px;
   font-family: 'Arima Madurai', cursive;
   font-weight: 400;
-  color: white ;
-  background-color: rgba(48, 118, 85, 0.5);
+  color: black ;
+  margin-top: 50px;
 }
 
 h2 {
@@ -36,16 +36,11 @@ li {
 }
 
 #navbar {
-  height: 50px;
   position: fixed;
-  top: 0px;
-  length: 100%;
-  z-index: 2;
-  width: 100%;
 }
 
 #navbar p {
-  color: rgb(48, 118, 85);
+  color: black;
   padding: 0;
   text-align: left;
   font-size: 15px;
@@ -60,16 +55,16 @@ li {
   color: blue;
 }
 
-#testbutton {
+#navshow {
   width: 100px;
   height: 100px;
   border-radius: 80px;
   margin-top: -50px;
   margin-left: -50px;
-  background-color: rgb(172, 235, 254);
+  background-color: rgba(255, 255, 255, .3);
 }
 
-#testbutton:hover {
+#navshow:hover {
   height: 400px;
   width: 400px;
   margin-top: -200px;
@@ -77,7 +72,7 @@ li {
   border-radius: 400px;
 }
 
-#buttons, #buttons:hover {
+#navbuttons, #navbuttons:hover {
   position: fixed;
   left: 10px;
   top: 10px;

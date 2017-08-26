@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   template:
   `
   <nav id="navbar">
-    <div id="testbutton" (mouseenter)="navtoggle()" (mouseleave)="navtoggle()">
-      <div [hidden]="!shownav" id="buttons">
+    <div id="navshow" (mouseenter)="navtoggle()" (mouseleave)="navtoggle()">
+      <div [hidden]="!shownav" id="navbuttons">
         <button type="button" class="navbutton" routerLink="../home"><p>Home</p></button><br/>
         <button type="button" class="navbutton" routerLink="../signup"><p>Sign Up</p></button><br/>
         <button type="button" class="navbutton" routerLink="../signin"><p>Sign In</p></button><br/>
