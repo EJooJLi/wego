@@ -5,8 +5,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
-import { SignUpComponent } from './signup.component';
-import { SignInComponent } from './signin.component';
 import { NavBarComponent } from './navbar.component';
 import { ProfileComponent } from './profile.component';
 import { FeedComponent } from './feed.component'
@@ -16,8 +14,6 @@ const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'find', redirectTo: 'search'},
   {path: 'home', component: HomeComponent},
-  {path: 'signup', component: SignUpComponent},
-  {path: 'signin', component: SignInComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'feed', component: FeedComponent},
   // {path: '**', component: HomeComponent}
@@ -27,8 +23,6 @@ const routes: Routes = [
   declarations: [
     HomeComponent,
     AppComponent,
-    SignUpComponent,
-    SignInComponent,
     NavBarComponent,
     ProfileComponent,
     FeedComponent
