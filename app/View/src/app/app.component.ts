@@ -7,7 +7,7 @@ interface weatherdata {
 
 @Component({
   selector: 'app-root',
-  template:`<navbar></navbar><router-outlet></router-outlet>
+  template:`<router-outlet></router-outlet>
 `
 })
 
