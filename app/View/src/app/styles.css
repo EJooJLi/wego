@@ -41,6 +41,51 @@ body {
   background-repeat: no-repeat;
 }
 
+.signinup {
+  position: fixed;
+  padding: 0px 20px 10px 20px;
+  background-color: rgba(255,255,255,.7);
+}
+
+.signinup h1 {
+  font-size: 20px;
+}
+
+.signinup p {
+  font-size: 15px;
+}
+
+#signupinfo {
+  width: 100px;
+  height: 20px;
+  font-size: 12px;
+  padding-left: 5px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+
+.signupinsubmit {
+  margin: auto;
+  outline: none;
+  font-size: 15px;
+  margin-top: 10px;
+  background-color: rgb(137, 240, 171);
+  border-radius: 2px;
+  display: inline-block;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.signupinsubmit:hover{
+  background-color: rgba(222, 224, 230, 0.7);
+  outline: none;
+  cursor: pointer;
+}
+
+.signupinsubmit:active{
+  background-color: rgba(222, 224, 230, 1)
+}
+
 .frontpage h1 {
   font-family: 'Arima Madurai', cursive;
   font-weight: 400;
@@ -180,16 +225,6 @@ body {
 
 .confirmation {
   font-size: 15px;
-}
-
-#signupinfo {
-  width: 500px;
-  height: 50px;
-  margin: auto;
-  font-size:20px;
-  padding-left: 20px;
-  border-radius: 5px;
-  display: inline-block;
 }
 
 .profileinformation {
