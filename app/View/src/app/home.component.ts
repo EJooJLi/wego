@@ -14,7 +14,10 @@ import { Headers } from '@angular/http';
 })
 
 export class HomeComponent {
-
+  images =  ["http://az616578.vo.msecnd.net/files/2015/06/08/635693880042525992-518822648_couple-hiking-valley.jpg",
+             "http://cdn.visitmammoth.com/sites/default/master/files/images/hero_images/hiking.jpg",
+             "http://www.greenland.com/media/4748/hiking-in-east-greenland-1.jpg?width=1920&height=1280&mode=crop&format=jpg&quality=95",
+              "https://blogmedia.evbstatic.com/wp-content/uploads/rally/2017/05/19122957/1U8A9059-49-1500x750.jpg"];
   shownav = true;
 
   navtoggle (shownav: string) {

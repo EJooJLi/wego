@@ -1,7 +1,8 @@
 <!-- This is not the actual html file, but a component. Actual HTML is index.html -->
+<div class="frontpage" id="backgroundimages" [style.backgroundImage]="'url('+images[0]+')'">
 <h1> WeGo </h1>
-<div class="UserInput" style="margin-top:90px;">
-  <form>
+<div class="UserInput">
+  <form style="margin:90px 0px 200px 0px;">
     <p>What's the plan?</p>
     <br/>
     <div>
@@ -11,4 +12,45 @@
     <button type="submit" class="submit" (click)="getinfo()"> GET! </button>
   </div>
   </form>
+</div>
+<br/>
+<p style="text-align: center;"> </p>
+</div>
+
+<div class="frontpage" id="backgroundimages" [style.backgroundImage]="'url('+images[1]+')'">
+  <h2> What is WeGo? </h2>
+  <div class="frontpagetext">
+  <h3> Missed or ruined opportunities..? </h3> <br/>
+      <p> A thing of the past. </p> <br/>
+      <h3> Weather and activity coordination </h3><br/>
+      <p> Cool weather and clear skies for that hike. <br/>
+      Rainy days for visiting your favorite museum. <br/>
+      Cloudy and cool weather for that outdoor concert. </p> <br/>
+      <h3> Notifications for your favorite events </h3><br/>
+</div>
+</div>
+
+<div class="frontpage" id="backgroundimages" [style.backgroundImage]="'url('+images[2]+')'">
+  <h2> How does it work? </h2>
+  <div class="frontpagetext">
+  <p> There are three simple steps </p><br/>
+  <ol>
+    <li> Sign Up! </li><br/>
+    <li> Fill out your user profile </li><br/>
+    <li> Check your daily feed </li><br/>
+    <p> NOTE: put pictures of the stuff for reference </p>
+  </ol>
+</div>
+</div>
+
+<div class="frontpage" id="backgroundimages" [style.backgroundImage]="'url('+images[3]+')'">
+  <h2> Our Story </h2>
+  <div class="frontpagetext">
+  <p> WeGo was created by two San Francisco Bay Area residents
+      that were simply tired of having their plans rained on, sometimes literally.
+      With foggy days ruining great views, to hot days ruining great hikes,
+      having the ability to having these activities with the weather in mind would alleviate these woes.
+      And so WeGo was born and expanded to serve more purpose than a simple weather check.
+  </p>
+</div>
 </div>

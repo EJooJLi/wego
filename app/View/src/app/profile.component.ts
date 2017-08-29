@@ -15,8 +15,9 @@ export class ProfileComponent {
   weatherlist = ["Cold", "Hot", "Sunny", "Cloudy", "Rainy", "Snowy", "Foggy", "Windy"];
   activitylist = ["Hiking", "Concerts", "Dining", "Picnics", "Sightseeing", "Urban Exploring", "Museums"];
 
-  weathercheck = {}
-  activitycheck = {}
+  weathercheck = {};
+  activitycheck = {};
+  //x="";
 
 //This part automatically creates an array of objects based on the weatherlist and activitylist
  ngOnInit() {
@@ -29,6 +30,9 @@ export class ProfileComponent {
   }
 
   saveinformation() {
+  //  if (this.x!=="") {
+  //    document.cookie = this.x, "; expires=Thu, 18 Dec 2015 12:00:00 UTC; path=/home";}
+
     this.userinfo = this.userinfo;
     this.activitycheck = this.activitycheck;
     this.weathercheck = this.weathercheck;

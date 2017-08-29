@@ -9,14 +9,14 @@
 a, a:hover, a:active, a:visited, a:focus {
   text-decoration: none;
 }
-
+/*
 h1 {
   text-align: center;
   font-size: 100px;
   font-family: 'Arima Madurai', cursive;
   font-weight: 400;
-  color: black ;
-  margin-top: 50px;
+  color: black;
+  padding-top: 50px;
 }
 
 h2 {
@@ -33,50 +33,88 @@ p {
 
 li {
   font-size: 15px;
+}*/
+
+body {
+  height: 100vh;
+  /*100vh is 100% of view height*/
+  background-repeat: no-repeat;
 }
 
-#navbar {
-  position: fixed;
-}
-
-#navbar p {
+.frontpage h1 {
+  font-family: 'Arima Madurai', cursive;
+  font-weight: 400;
   color: black;
-  padding: 0;
+  text-align: center;
+  font-size: 100px;
+  padding-top: 100px;
+}
+
+.frontpage h2 {
+  font-family: 'Arima Madurai', cursive;
+  font-weight: 400;
+  color: black;
+  text-align: center;
+  font-size: 50px;
+  padding-top: 60px;
+  padding-bottom: 20px;
+  color: white;
+  background-color: rgba(0,0,0,.4);
+}
+
+.frontpage h3 {
+  font-family: 'Arima Madurai', cursive;
+  font-weight: 400;
+  color: black;
+  font-size: 25px;
+  padding-left: 30px;
+}
+
+.frontpage p, ul, li, ol {
+  padding-left: 50px;
+  font-size: 20px;
+  list-style-type: none;
+}
+
+.frontpagetext {
+  background-color: rgba(255,255,255,.6);
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#backgroundimages {
+  height: 100vh;
+  background-position: 60% 10%;
+
+}
+
+#navshow {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  border-radius: 0px 0px 50px 0px;
+  background-color: rgba(255, 255, 255, .3);
+}
+
+#navshow:hover {
+  height: 180px;
+  width: 180px;
+  border-radius: 0px 0px 180px 0px;
+}
+
+#navshow p {
+  color: black;
   text-align: left;
   font-size: 15px;
   width: auto;
 }
 
-#navbar p:hover {
+#navshow p:hover {
   font-size: 17px;
 }
 
-#navbar p:focus, #navbar p:active {
+#navshow p:focus, #navshow p:active {
   color: blue;
-}
-
-#navshow {
-  width: 100px;
-  height: 100px;
-  border-radius: 80px;
-  margin-top: -50px;
-  margin-left: -50px;
-  background-color: rgba(255, 255, 255, .3);
-}
-
-#navshow:hover {
-  height: 400px;
-  width: 400px;
-  margin-top: -200px;
-  margin-left: -200px;
-  border-radius: 400px;
-}
-
-#navbuttons, #navbuttons:hover {
-  position: fixed;
-  left: 10px;
-  top: 10px;
-  box-sizing: border-box
 }
 
 .navbutton, .navbutton:active, .navbutton:visited, .navbutton:focus {
@@ -84,8 +122,7 @@ li {
   width: auto;
   text-align: center;
   outline: 0;
-  margin-left: 10px;
-  margin-bottom: 10px;
+  margin: 10px 0px 0px 10px;
 }
 
 .UserInput {
