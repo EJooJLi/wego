@@ -1,9 +1,13 @@
 // The API controller
 
+// Require weather.js, yelp.js, events.js
+var weather = require("./weather");
+var yelp = require("./yelp");
+var events = require("./events");
+
 /**
 * Getting coordinates
 */
-
 var geocoder = NodeGeocoder({
   provider: "google",
   apiKey: "AIzaSyByfXpktliHp3ihiDCBRcDy8JU800DwFZ0",
@@ -11,10 +15,10 @@ var geocoder = NodeGeocoder({
   formatter: null
 });
 
-
 // If there are any overrides in address, use the cached override
 if (hasOverride) {
   var coord = cachedCoord;
+  return coord;
 }
 
 // If user has a default address saved on profile & no perm coordinates
@@ -27,12 +31,14 @@ else if (defaultAddress && !permCoord) {
       lng: res[0].longitude
     }
     var coord = permCoord;
+    return coord;
   }
 }
 // If user has a default address saved on profile & has perm coordinates
 // Use the perm coordinates
 else if (defaultAddress && permCoord) {
   var coord = permCoord;
+  return coord;
 }
 
 /**
@@ -40,6 +46,7 @@ else if (defaultAddress && permCoord) {
 */
 
 // Use the coordinates (perm or override) and call weather.js
+
 
 /**
 * Getting the yelp data
