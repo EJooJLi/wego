@@ -1,15 +1,15 @@
 <!-- This is not the actual html file, but a component. Actual HTML is index.html -->
-<div class="frontpage" id="backgroundimages" [style.backgroundImage]="'url('+images[0]+')'">
+<div class="frontpage" id="homepageimages" [style.backgroundImage]="'url('+images[0]+')'">
 <h1> WeGo </h1>
-<div class="UserInput">
+<div id="homeuserinput">
   <form style="margin:90px 0px 200px 0px;">
     <p>What's the plan?</p>
     <br/>
     <div>
-    <input type="text" class="forminputs" id="planinput" #plans (keyup)="0">
+    <input type="text" id="homeinput" #plans (keyup)="0">
     <!-- the key up allows for "prompt.value" to be updated live-->
-    <button type="submit" class="submit" (click)="formsubmit(plans.value)" (click)="sendinfo()"> Let's go! </button>
-    <button type="submit" class="submit" (click)="getinfo()"> GET! </button>
+    <button type="submit" id="homesubmit" (click)="formsubmit(plans.value)" (click)="sendinfo()"> Let's go! </button>
+    <button type="submit" id="homesubmit" (click)="getinfo()"> GET! </button>
   </div>
   </form>
 </div>
@@ -17,7 +17,7 @@
 <p style="text-align: center;"> </p>
 </div>
 
-<div class="frontpage" id="backgroundimages" [style.backgroundImage]="'url('+images[1]+')'">
+<div class="frontpage" id="homepageimages" [style.backgroundImage]="'url('+images[1]+')'">
   <h2> What is WeGo? </h2>
   <div class="frontpagetext">
   <h3> Missed or ruined opportunities..? </h3> <br/>
@@ -30,7 +30,7 @@
 </div>
 </div>
 
-<div class="frontpage" id="backgroundimages" [style.backgroundImage]="'url('+images[2]+')'">
+<div class="frontpage" id="homepageimages" [style.backgroundImage]="'url('+images[2]+')'">
   <h2> How does it work? </h2>
   <div class="frontpagetext">
   <p> There are three simple steps </p><br/>
@@ -43,7 +43,7 @@
 </div>
 </div>
 
-<div class="frontpage" id="backgroundimages" [style.backgroundImage]="'url('+images[3]+')'">
+<div class="frontpage" id="homepageimages" [style.backgroundImage]="'url('+images[3]+')'">
   <h2> Our Story </h2>
   <div class="frontpagetext">
   <p> WeGo was created by two San Francisco Bay Area residents

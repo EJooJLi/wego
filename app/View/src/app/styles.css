@@ -1,3 +1,5 @@
+/*~~~~~~~~~~~~~~~~~~GLOBAL~~~~~~~~~~~~~~~~~~~~*/
+
 * {
   box-sizing: border-box;
   border: 0px solid black;
@@ -9,31 +11,6 @@
 a, a:hover, a:active, a:visited, a:focus {
   text-decoration: none;
 }
-/*
-h1 {
-  text-align: center;
-  font-size: 100px;
-  font-family: 'Arima Madurai', cursive;
-  font-weight: 400;
-  color: black;
-  padding-top: 50px;
-}
-
-h2 {
-  font-size: 30px;
-}
-
-h3 {
-  font-size: 20px;
-}
-
-p {
-  font-family: 'Bubbler One', sans-serif;
-}
-
-li {
-  font-size: 15px;
-}*/
 
 body {
   height: 100vh;
@@ -41,51 +18,7 @@ body {
   background-repeat: no-repeat;
 }
 
-.signinup {
-  position: fixed;
-  padding: 0px 20px 10px 20px;
-  background-color: rgba(255,255,255,.9);
-  border-radius: 0px 0px 20px 0px;
-}
-
-.signinup h1 {
-  font-size: 20px;
-}
-
-.signinup p {
-  font-size: 15px;
-}
-
-#signupinfo {
-  width: 100px;
-  height: 20px;
-  font-size: 12px;
-  padding-left: 5px;
-  border-radius: 5px;
-  display: inline-block;
-}
-
-
-.signupinsubmit {
-  margin: auto;
-  outline: none;
-  font-size: 15px;
-  margin-top: 10px;
-  background-color: rgb(137, 240, 171);
-  border-radius: 2px;
-  display: inline-block;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.signupinsubmit:hover{
-  background-color: rgba(222, 224, 230, 0.7);
-  outline: none;
-  cursor: pointer;
-}
-
-.signupinsubmit:active{
-  background-color: rgba(222, 224, 230, 1)
-}
+/*~~~~~~~~~~~~~~~~~~~HOMECOMPONENT~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .frontpage h1 {
   font-family: 'Arima Madurai', cursive;
@@ -128,11 +61,65 @@ body {
   padding-bottom: 20px;
 }
 
-#backgroundimages {
+#homepageimages {
   height: 100vh;
   background-position: 60% 10%;
-
 }
+
+#homeuserinput {
+  text-align: center;
+  font-size: 25px;
+}
+
+.homeforminputs {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#homeinput {
+  background-image: url('https://image.flaticon.com/icons/png/512/10/10536.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 500px;
+  height: 50px;
+  margin: auto;
+  font-size:20px;
+  padding-left: 60px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+#homeinput:hover {
+  background-color: rgba(222, 224, 230, 0.9);
+}
+
+#homeinput:focus {
+  background-color: rgba(222, 224, 230, 0.9);
+  outline: none;
+}
+
+#homesubmit {
+  margin: auto;
+  outline: none;
+  padding: 10px 10px 10px 10px;
+  font-size: 20px;
+  background-color: rgb(137, 240, 171);
+  border-radius: 2px;
+  display: inline-block;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#homesubmit:hover{
+  background-color: rgba(222, 224, 230, 0.7);
+  outline: none;
+  cursor: pointer;
+}
+
+#homesubmit:active{
+  background-color: rgba(222, 224, 230, 1)
+}
+
+/*~~~~~~~~~~~~~~~~NAVBARCOMPONENT~~~~~~~~~~~~~~~~*/
 
 #navshow {
   position: fixed;
@@ -171,63 +158,52 @@ body {
   margin: 10px 0px 0px 10px;
 }
 
-.UserInput {
-  text-align: center;
-  font-size: 25px;
+.signinup {
+  position: fixed;
+  padding: 0px 20px 10px 20px;
+  background-color: rgba(255,255,255,.9);
+  border-radius: 0px 0px 20px 0px;
 }
 
-.forminputs {
-  background-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.signinup h1 {
+  font-size: 20px;
 }
 
-.forminputs:hover {
-  background-color: rgba(222, 224, 230, 0.9);
+.signinup p {
+  font-size: 15px;
 }
 
-.forminputs:focus {
-  background-color: rgba(222, 224, 230, 0.9);
-  outline: none;
-}
-
-#planinput {
-  background-image: url('https://image.flaticon.com/icons/png/512/10/10536.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 500px;
-  height: 50px;
-  margin: auto;
-  font-size:20px;
-  padding-left: 60px;
+#signupinfo {
+  width: 100px;
+  height: 20px;
+  font-size: 12px;
+  padding-left: 5px;
   border-radius: 5px;
   display: inline-block;
 }
 
-.submit {
+#signupinsubmit {
   margin: auto;
   outline: none;
-  padding: 10px 10px 10px 10px;
-  font-size: 20px;
+  font-size: 15px;
+  margin-top: 10px;
   background-color: rgb(137, 240, 171);
   border-radius: 2px;
   display: inline-block;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.submit:hover{
+#signupinsubmit:hover{
   background-color: rgba(222, 224, 230, 0.7);
   outline: none;
   cursor: pointer;
 }
 
-.submit:active{
+#signupinsubmit:active{
   background-color: rgba(222, 224, 230, 1)
 }
 
-.confirmation {
-  font-size: 15px;
-}
-
+/*~~~~~~~~~~PROFILECOMPONENT~~~~~~~~~~~*/
 .profileinformation {
   display: inline-block;
   width:100%;
@@ -245,11 +221,6 @@ body {
   padding: 0px 10px 0px 10px;
   vertical-align: top;
   /*the top part prevents the divs from shifting when you put in text*/
-}
-
-#preferences {
-  display: inline-block;
-  width: 45%;
 }
 
 #userinfo {
@@ -275,6 +246,35 @@ body {
   outline: none;
   cursor: pointer;
 }
+
+#profsubmit {
+  margin: auto;
+  outline: none;
+  font-size: 15px;
+  margin-top: 10px;
+  background-color: rgb(137, 240, 171);
+  border-radius: 2px;
+  display: inline-block;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#profsubmit:hover{
+  background-color: rgba(222, 224, 230, 0.7);
+  outline: none;
+  cursor: pointer;
+}
+
+#profsubmit:active{
+  background-color: rgba(222, 224, 230, 1)
+}
+
+#preferences {
+  display: inline-block;
+  width: 45%;
+}
+
+/*~~~~~~~~~~~FEEDCOMPONENT~~~~~~~~~~~*/
+
 
 .feedpage {
   width: 100%;

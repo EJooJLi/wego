@@ -22,32 +22,32 @@ import { Headers } from '@angular/http';
     <h1> Sign Up! </h1><br/>
       <form>
         <p>First Name</p>
-        <input type="text" #first class="forminputs" id="signupinfo">
+        <input type="text" #first id="signupinfo">
         <p>Last Name</p>
-        <input type="text" #last class="forminputs" id="signupinfo">
+        <input type="text" #last id="signupinfo">
         <p>Username</p>
-        <input type="text" #user class="forminputs" id="signupinfo">
+        <input type="text" #user id="signupinfo">
         <p>Location</p>
-        <input type="text" #loc class="forminputs" id="signupinfo">
+        <input type="text" #loc id="signupinfo">
         <p>Password</p>
-        <input type="text" #pass class="forminputs" id="signupinfo">
+        <input type="text" #pass id="signupinfo">
         <br/>
-        <button type="submit" class="signupinsubmit" (click)="getinfo(first.value, last.value, user.value, loc.value, pass.value)"(click)="postsignup()"> Submit </button>
+        <button type="submit" id="signupinsubmit" (click)="getinfo(first.value, last.value, user.value, loc.value, pass.value)"(click)="postsignup()"> Submit </button>
       </form>
-      <button type="button" class="signupinsubmit" (click)="signuptoggle()">Close</button>
+      <button type="button" id="signupinsubmit" (click)="signuptoggle()">Close</button>
     </div>
 
     <div class="signinup" [hidden]="!showsignin">
     <h1> Sign In! </h1><br/>
       <form>
         <p>Username</p>
-        <input type="text" #user class="forminputs" id="signupinfo">
+        <input type="text" #user id="signupinfo">
         <p>Password</p>
-        <input type="text" #pass class="forminputs" id="signupinfo">
+        <input type="text" #pass id="signupinfo">
         <br/>
-        <button type="submit" class="signupinsubmit" (click)="getinfo(first.value, last.value, user.value, loc.value, pass.value)"(click)="postsignup()"> Submit </button>
+        <button type="submit" id="signupinsubmit" (click)="getinfo(first.value, last.value, user.value, loc.value, pass.value)"(click)="postsignup()"> Submit </button>
       </form>
-      <button type="button" class="signupinsubmit" (click)="signintoggle()">Close</button>
+      <button type="button" id="signupinsubmit" (click)="signintoggle()">Close</button>
     </div>
   `,
   styleUrls: ['./styles.css']
