@@ -1,5 +1,10 @@
-<h1> Feed </h1>
 <div class="feedpage">
+  <div id="feedbar">
+    <h1> Feed </h1>
+    <div id="feedprofilepic"></div>
+    <h2> Where to go and what to see? </h2>
+    <input id="feedinput" placeholder="Search">
+  </div>
   <div class="feed">
     <div class="feedcard" *ngFor="let title of testcards; let i = index" [attr.data-index]="i">
         <h3 style="display: inline"> {{testcards[i].title}} </h3> <p style="display: inline">{{testcards[i].date | date}} </p>
