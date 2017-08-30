@@ -123,16 +123,21 @@ body {
 
 #navshow {
   position: fixed;
-  width: 50px;
-  height: 50px;
-  border-radius: 0px 0px 50px 0px;
-  background-color: rgba(255, 255, 255, .3);
+  width: 60px;
+  height: 60px;
+  border-radius: 0px 0px 60px 0px;
+  background-image: url("https://favim.com/media/uploads/images/mini/140325/cute-smiley-face-transparent-Favim.com-1543790.jpg");
+  opacity: 0.3;
+  background-size: contain;
 }
 
 #navshow:hover {
   height: 180px;
   width: 180px;
+  background-color: rgba(255, 255, 255, .3);
+  opacity: 1;
   border-radius: 0px 0px 180px 0px;
+  background-image: none;
 }
 
 #navshow p {
