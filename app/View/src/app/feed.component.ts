@@ -19,6 +19,8 @@ export class FeedComponent {
     {title: "It's going to snow!", date: "2017-08-04", content: "Let it snow, let it snow"}
     ]
 
+  savedcards = [];
+
   ngOnInit() {
     //sort that JSON list!
     this.testcards.sort((a, b) => {
@@ -26,6 +28,12 @@ export class FeedComponent {
     });
   }
 
+  savecard(i: number) {
+    //saves a card from the list. The code will add the card to the DB.
+    this.savedcards.push(this.testcards[i]);
+    console.log(this.savedcards);
+    this.testcards.splice(i,1);
+  }
 
 
 }

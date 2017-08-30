@@ -17,5 +17,4 @@ interface weatherdata {
 
 // <body [style.backgroundImage]="'url('+images+')'">
 export class AppComponent {
-  images =  "";
 }

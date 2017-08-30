@@ -338,13 +338,13 @@ body {
   height: 150px;
   background-color: rgb(162, 198, 239);
   border-bottom: 1px solid rgba(0,0,0,.1);
-  padding-left: 100px;
+  padding-left: 200px;
   padding-top: 10px;
 }
 
 #feedbar h1 {
   font-size: 40px;
-  margin-left: 130px;
+  margin-left: 140px;
   margin-top: 10px;
   position: absolute;
 }
@@ -352,8 +352,13 @@ body {
 #feedbar h2 {
   font-size: 20px;
   position: absolute;
-  margin-left: 130px;
+  margin-left: 140px;
   margin-top: -60px;
+}
+
+#savedeventcounter {
+  position: absolute;
+  right: 10px;
 }
 
 #feedinput {
@@ -361,13 +366,13 @@ body {
   border: 1px solid rgba(0,0,0,.3);
   outline: none;
   font-family: 'Bubbler One', sans-serif;
-  padding: 2px 5px 2px 5px;
+  padding: 5px 5px 5px 5px;
   font-size: 20px;
   border-radius: 5px;
   width: 400px;
   position: absolute;
   margin-top: -30px;
-  margin-left: 130px;
+  margin-left: 140px;
 }
 
 #feedinput:hover {
@@ -388,6 +393,29 @@ body {
   border-radius: 25px;
 }
 
+#feedsubmit {
+  margin: auto;
+  outline: none;
+  margin-left: 545px;
+  margin-top: -30px;
+  padding: 5px 10px 5px 10px;
+  font-size: 20px;
+  background-color: rgb(137, 240, 171);
+  border-radius: 2px;
+  position: absolute;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#feedsubmit:hover{
+  background-color: rgba(222, 224, 230, 0.7);
+  outline: none;
+  cursor: pointer;
+}
+
+#feedsubmit:active{
+  background-color: rgba(222, 224, 230, 1)
+}
+
 .feed {
   border: 0px solid black;
   width: 70%;
@@ -405,6 +433,25 @@ body {
   display: inline-block;
   border-radius: 5px;
   padding: 10px 5px 20px 5px;
+  position: relative;
+}
+
+#feedcardbutton {
+  position: absolute;
+  right: 4px;
+  outline: none;
+  padding: 2px 4px 2px 4px;
+  border-radius: 3px;
+}
+
+#feedcardbutton:hover{
+  background-color: rgba(222, 224, 230, 0.7);
+  outline: none;
+  cursor: pointer;
+}
+
+#feedcardbutton:active{
+  background-color: rgba(222, 224, 230, 1)
 }
 
 .sidebar {
