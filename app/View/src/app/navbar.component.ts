@@ -6,52 +6,8 @@ import { Headers } from '@angular/http';
 
 @Component({
   selector: 'navbar',
-  template:
-  `
-    <nav id="navshow" (mouseenter)="navtoggle()" (mouseleave)="navtoggle()">
-      <div [hidden]="!shownav">
-        <button type="button" class="navbutton" routerLink="../home"><p>Home</p></button><br/>
-        <button type="button" class="navbutton" (click)="signuptoggle()"><p>Sign Up</p></button><br/>
-        <button type="button" class="navbutton" (click)="signintoggle()"><p>Sign In</p></button><br/>
-        <button type="button" class="navbutton" routerLink="../profile"><p>MyProfile</p></button><br/>
-        <button type="button" class="navbutton" routerLink="../feed"><p>Feed</p></button><br/>
-      </div>
-    </nav>
-
-    <div class="signinup" [hidden]="!showsignup">
-    <h1> Sign Up! </h1><br/>
-      <form>
-        <p>First Name</p>
-        <input type="text" #first id="signupinfo">
-        <p>Last Name</p>
-        <input type="text" #last id="signupinfo">
-        <p>Username</p>
-        <input type="text" #user id="signupinfo">
-        <p>Location</p>
-        <input type="text" #loc id="signupinfo">
-        <p>Password</p>
-        <input type="text" #pass id="signupinfo">
-        <br/>
-        <button type="submit" id="signupinsubmit" (click)="getinfo(first.value, last.value, user.value, loc.value, pass.value)"(click)="postsignup()"> Submit </button>
-      </form>
-      <button type="button" id="signupinsubmit" (click)="signuptoggle()">Close</button>
-    </div>
-
-    <div class="signinup" [hidden]="!showsignin">
-    <h1> Sign In! </h1><br/>
-      <form>
-        <p>Username</p>
-        <input type="text" #user id="signupinfo">
-        <p>Password</p>
-        <input type="text" #pass id="signupinfo">
-        <br/>
-        <button type="submit" id="signupinsubmit" (click)="getinfo(first.value, last.value, user.value, loc.value, pass.value)"(click)="postsignup()"> Submit </button>
-      </form>
-      <button type="button" id="signupinsubmit" (click)="signintoggle()">Close</button>
-    </div>
-  `,
+  templateUrl: './navbar.component.html',
   styleUrls: ['./styles.css']
-
 })
 
 export class NavBarComponent {

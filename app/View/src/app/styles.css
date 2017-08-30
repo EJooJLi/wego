@@ -166,7 +166,7 @@ body {
 
 .signinup {
   position: fixed;
-  padding: 0px 20px 10px 20px;
+  padding: 0px 50px 10px 40px;
   background-color: rgba(255,255,255,.9);
   border-radius: 0px 0px 20px 0px;
 }
@@ -179,18 +179,40 @@ body {
   font-size: 15px;
 }
 
-#signupinfo {
-  width: 100px;
+#closesigninup {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  outline: none;
+  cursor: pointer;
+  margin-left: -40px;
+  background-color: rgba(0,0,0,.1);
+  border-radius: 10px;
+}
+
+#signupininput {
+  width: 150px;
   height: 20px;
   font-size: 12px;
-  padding-left: 5px;
+  padding-left: 10px;
   border-radius: 5px;
   display: inline-block;
+  margin-bottom: 10px;
+}
+
+#signupininput:hover {
+  background-color: rgba(222, 224, 230, 0.7);
+}
+
+#signupininput:focus {
+  background-color: rgba(222, 224, 230, 0.7);
+  outline: none;
 }
 
 #signupinsubmit {
   margin: auto;
   outline: none;
+  padding: 5px 5px 5px 5px;
   font-size: 15px;
   margin-top: 10px;
   background-color: rgb(137, 240, 171);
