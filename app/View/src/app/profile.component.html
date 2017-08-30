@@ -1,18 +1,25 @@
-<h1>Welcome, {{userinfo.username}}</h1>
-<div class="profileinformation">
-  <div id="profiledetails">
-    <h2 style="text-align: center;">Personal Details</h2><br/>
+<div class="profile">
+<div id="profilebar"><br/>
+<h1>{{userinfo.username}}</h1>
+  <div id="profilepic"></div>
+</div>
+  <div id="personaldetails">
+    <h2>Sign In Details</h2><br/>
       <h3>User Name</h3>
       <input id="userinfo" [(ngModel)]="userinfo.username" placeholder="User Name">
-      <h3>Email Address</h3>
-      <input id="userinfo" [(ngModel)]="userinfo.email" placeholder="Email Address">
       <h3>Password</h3>
       <input id="userinfo" [(ngModel)]="userinfo.password" placeholder="Password">
+      <br/><br/>
+    <h2>Personal Details</h2><br/>
+      <h3>Home Location</h3>
+      <input id="userinfo" [(ngModel)]="userinfo.location" placeholder="Home Location">
+      <h3>Email Address</h3>
+      <input id="userinfo" [(ngModel)]="userinfo.email" placeholder="Email Address">
       <!-- <h3>Cookie</h3>
       <input id="userinfo" [(ngModel)]="x" placeholder="cookie"> -->
   </div>
   <button type="submit" id="profsubmit" (click)="saveinformation()"> Update Info </button>
-  <div id="profiledetails">
+  <div id="personaldetails">
     <h2 style="text-align: center;">Preferences</h2><br/>
     <div id="preferences">
       <h3>Weather</h3>

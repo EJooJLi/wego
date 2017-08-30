@@ -20,7 +20,7 @@ body {
 
 /*~~~~~~~~~~~~~~~~~~~HOMECOMPONENT~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-.frontpage h1 {
+.homepage h1 {
   font-family: 'Arima Madurai', cursive;
   font-weight: 400;
   color: black;
@@ -29,7 +29,7 @@ body {
   padding-top: 100px;
 }
 
-.frontpage h2 {
+.homepage h2 {
   font-family: 'Arima Madurai', cursive;
   font-weight: 400;
   color: black;
@@ -41,7 +41,7 @@ body {
   background-color: rgba(0,0,0,.4);
 }
 
-.frontpage h3 {
+.homepage h3 {
   font-family: 'Arima Madurai', cursive;
   font-weight: 400;
   color: black;
@@ -49,13 +49,13 @@ body {
   padding-left: 30px;
 }
 
-.frontpage p, ul, li, ol {
+.homepage p, ul, li, ol {
   padding-left: 50px;
   font-size: 20px;
   list-style-type: none;
 }
 
-.frontpagetext {
+.homepagetext {
   background-color: rgba(255,255,255,.6);
   padding-top: 20px;
   padding-bottom: 20px;
@@ -66,7 +66,7 @@ body {
   background-position: 60% 10%;
 }
 
-#homeuserinput {
+#homeuserinputbox {
   text-align: center;
   font-size: 25px;
 }
@@ -76,7 +76,7 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-#homeinput {
+#homepageinput {
   background-image: url('https://image.flaticon.com/icons/png/512/10/10536.png');
   background-size: contain;
   background-repeat: no-repeat;
@@ -87,13 +87,14 @@ body {
   padding-left: 60px;
   border-radius: 5px;
   display: inline-block;
+  border: 1px solid rgba(0,0,0,.3);
 }
 
-#homeinput:hover {
+#homepageinput:hover {
   background-color: rgba(222, 224, 230, 0.9);
 }
 
-#homeinput:focus {
+#homepageinput:focus {
   background-color: rgba(222, 224, 230, 0.9);
   outline: none;
 }
@@ -198,6 +199,7 @@ body {
   border-radius: 5px;
   display: inline-block;
   margin-bottom: 10px;
+  border: 1px solid rgba(0,0,0,.3);
 }
 
 #signupininput:hover {
@@ -232,19 +234,41 @@ body {
 }
 
 /*~~~~~~~~~~PROFILECOMPONENT~~~~~~~~~~~*/
-.profileinformation {
-  display: inline-block;
-  width:100%;
-  height:auto;
+.profile {
+  padding-bottom: 40px;
 }
 
-#profiledetails {
+.profile h1 {
+  font-size: 50px;
+  text-align: center;
+}
+
+#profilebar {
+  padding-bottom: 30px;
+  background: linear-gradient(180deg, rgb(162, 198, 239), rgb(206, 220, 234));
+  background-position: 0% 60%;
+  background-repeat: no-repeat;
+  border-bottom: 3px solid black;
+}
+
+#profilepic {
+  background-image: url("https://avatars2.githubusercontent.com/u/18385437?v=4&s=460");
+  width: 150px;
+  height: 150px;
+  background-size: contain;
+  border-radius: 100px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#personaldetails {
   display: inline-block;
   width: 35%;
   margin-top: 50px;
   margin-left: 10%;
   height: auto;
-  background-color: rgba(255,255,255,0.7);
+  background-color: rgba(255,255,255,0.4);
   border-radius: 10px;
   padding: 0px 10px 0px 10px;
   vertical-align: top;
@@ -253,6 +277,7 @@ body {
 
 #userinfo {
   background-color: rgba(0,0,0,0);
+  border: 1px solid rgba(0,0,0,.3);
   outline: none;
   cursor: pointer;
   font-family: 'Bubbler One', sans-serif;

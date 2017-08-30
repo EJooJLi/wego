@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
 
 export class ProfileComponent {
   //the information will eventually be a GET request from the server
-  userinfo = {username: "Pug", email: "Pug@pug.com", password: "*******"}
+  userinfo = {username: "Pug", email: "Pug@pug.com", password: "*******", location: "San Francisco, CA"}
   weatherlist = ["Cold", "Hot", "Sunny", "Cloudy", "Rainy", "Snowy", "Foggy", "Windy"];
   activitylist = ["Hiking", "Concerts", "Dining", "Picnics", "Sightseeing", "Urban Exploring", "Museums"];
 
