@@ -1,21 +1,31 @@
 <div class="feedpage">
   <div id="feedbar">
-    <h1> Feed </h1>
-    <p id="savedeventcounter"> Events saved <br/> {{savedcards.length}} </p>
-    <div id="feedprofilepic" alt="profile picture"></div>
+    <h1> FEED </h1>
     <h2> Where to go and what to see? </h2>
-    <input id="feedinput" placeholder="Search">
-    <button type="submit" id="feedsubmit"><p>Go!</p></button>
+    <input id="feedinput" [(ngModel)]="feedinput" placeholder=". . .">
+    <button type="submit" id="feedsubmit" (click)="feedsubmit()"></button>
+    <img id="feedprofilepic" alt="*profilepic*">
   </div>
   <div class="feed">
-    <div class="feedcard" *ngFor="let title of testcards; let i = index" [attr.data-index]="i">
-        <button type="submit" id="feedcardbutton" (click)="savecard(i)"><p>save</p></button>
-        <h3 style="display: inline"> {{testcards[i].title}} </h3> <p style="display: inline">{{testcards[i].date | date}} </p>
+    <div class="feedcard" *ngFor="let title of testcards; let i = index" [attr.data-index]="i" [hidden]="testcards[i].removed">
+        <button type="submit" class="feedcardbutton" id="removebutton" (click)="removecard(i)"><p>remove</p></button>
+        <button type="submit" class="feedcardbutton" id="savebutton" (click)="savecard(i)"><p [hidden]="testcards[i].saved">save</p><p [hidden]="!testcards[i].saved">unsave</p></button>
+        <div id="feedcardtitle"><h3 style="display: inline"> {{testcards[i].title}}</h3></div>
+        <div id="feedcarddatesave"><p style="display: inline"> {{testcards[i].date | date}} <span [hidden]="!testcards[i].saved"> - SAVED - </span></div>
+        <br/><div id="feedcardpic" alt="*feedpicture*"></div>
         <p> {{testcards[i].content}} </p>
       <br/>
     </div>
   </div>
   <div class="sidebar">
+      <h4>WEATHER</h4>
+      <div id="currentweather"></div>
+      <h4>CALENDAR  ( {{savedcards.length}} total events ) </h4>
+      <div id="calendar"></div>
+      <h4>EVENTS THIS WEEK</h4>
+      <div id="thisweeksevents"></div>
+      <h4>UPCOMING EVENTS</h4>
+      <div id="upcomingevents"></div>
     <br/>
   </div>
 </div>
