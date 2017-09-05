@@ -2,10 +2,10 @@ let express = require('express'); // For built-in middleware
 let request = require('request');
 
 // Testing by assiging coordinates - remove to do E2E Testing
-var coord = {
-  lat: 30,
-  lng: 55
-}
+// var coord = {
+//   lat: 30,
+//   lng: 55
+// }
 
 // Declare WeatherAPI information, consider moving this to .env
 let weatherapi = {
@@ -30,7 +30,7 @@ var getWeather = function(coord, err, callback) {
 }
 
 // Testing
-getWeather(coord);
+// getWeather(coord);
 
 // Export this out to use on apiController.js
 module.exports = getWeather;
