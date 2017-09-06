@@ -1,56 +1,35 @@
-//The GoogleAPI coordinates are sent to the weather API to get weather information.
-
 let express = require('express'); // For built-in middleware
 let request = require('request');
-var NodeGeocoder = require("node-geocoder");
-var HttpsAdapter = require('node-geocoder/lib/httpadapter/httpsadapter.js')
-var httpAdapter = new HttpsAdapter(null, {
-  headers: {
-    'user-agent': 'My application <email@domain.com>',
-    'X-Specific-Header': 'Specific value'
-  }
-});
 
-// This is a placeholder for a request, with the address format
-var req = {address:"4400 Lone Tree Drive, Plano, Texas"};
+// Testing by assiging coordinates - remove to do E2E Testing
+var coord = {
+  lat: 30,
+  lng: 55
+}
 
-// Assigning params for NodeGeocoder, using our API Key and Google Map API
-var geocoder = NodeGeocoder({
-  provider: "google",
-  apiKey: "AIzaSyByfXpktliHp3ihiDCBRcDy8JU800DwFZ0",
-  httpAdapter: httpAdapter,
-  formatter: null
-});
+// Declare eventapi information, consider moving this to .env
+let eventapi = {
+  key: "&app_key=Msm3HTBsBfRVV6Ps",
+  root: "http://api.eventful.com/json/events/search?"
+}
 
-// The actual processing, geocoding an address and sends it to
-// EventsAPI to get the event data
-// Change the req.address to req when module is complete
-// Also need to export this method so that it can be used in
-// app.js
-geocoder.geocode(req.address, function(err, res){
-// Assigning latitude and longitude
-  var lat = res[0].latitude;
-  var lng = res[0].longitude;
+// Function to get Events information
+var getEvents = function(coord, err, callback) {
+    if (err) {
+        return callback(err);
+    } else {
+      // Create a coordinate string for events API
+      var coordString = "&location="+coord.lat+","+coord.lng;
+      var eventsURL = `${eventapi.root}${coordString}${eventapi.radius}${eventapi.key}`
+      request(eventsURL, function(error, response, body){
+        console.log(JSON.parse(body));
+        return body;
+      });
+    }
+}
 
-// Assigning params for eventAPI
-  let eventapi = {
-    key: "&app_key=Msm3HTBsBfRVV6Ps",
-    root: "http://api.eventful.com/json/events/search?",
-    coord: {
-      "lon": lng,
-      "lat": lat
-    },
-    radius: "&within=10"
-  };
-  // Creating a string for API use
-  var coords="&location="+lat+","+lng;
-  // Compose the full API search string
-  var weatherapifull=`${eventapi.root}${coords}${eventapi.radius}${eventapi.key}`
-  request(weatherapifull, function (error, response, body) {
-      console.log(JSON.parse(body.events)); // Print to test results
-      return body;
-      // Need error handler
-  });
-});
+// Testing
+getEvents(coord);
 
-// Export this out to use on app.js
+// Export this out to use on apiController.js
+module.exports = getEvents;
