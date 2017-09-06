@@ -4,7 +4,7 @@
     <h2> Where to go and what to see? </h2>
     <input id="feedinput" [(ngModel)]="feedinput" placeholder=". . .">
     <button type="submit" id="feedsubmit" (click)="feedsubmit()"></button>
-    <img id="feedprofilepic" alt="*profilepic*">
+    <img id="feedprofilepic" alt="*profilepic*" src="https://avatars2.githubusercontent.com/u/18385437?v=4&s=460">
   </div>
   <div class="feed">
     <div class="feedcard" *ngFor="let title of testcards; let i = index" [attr.data-index]="i" [hidden]="testcards[i].removed">
