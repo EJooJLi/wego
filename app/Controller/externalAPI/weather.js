@@ -15,9 +15,10 @@ let weatherapi = {
 };
 
 // Function to get Weather information
-var getWeather = function(coord, err, callback) {
+exports.getWeather = function(err, callback) {
     if (err) {
-        return callback(err);
+        console.log("Error!", err);
+        return;
     } else {
       // Create a coordinate string for weather API
       var coordString = "lat="+coord.lat+"&lon="+coord.lng;
@@ -33,4 +34,3 @@ var getWeather = function(coord, err, callback) {
 // getWeather(coord);
 
 // Export this out to use on apiController.js
-module.exports = getWeather;
