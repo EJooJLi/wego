@@ -20,8 +20,24 @@
   <div class="sidebar">
       <h4>WEATHER</h4>
       <div id="currentweather"></div>
-      <h4>CALENDAR  ( {{savedcards.length}} total events ) </h4>
-      <div id="calendar"></div>
+      <h4 style="display:inline-block;">CALENDAR  ( {{savedcards.length}} total events ) </h4>
+      <button type="submit" id="todaysdate" (click)="todaydate()"> TODAY </button>
+      <div id="calendar">
+        <div id= "days">
+          <p>{{displaymonth}} {{year}}<p>
+            <button type="submit" class="monthtoggle" id="monthtoggleprev" (click)="prevmonth()"> < </button>
+            <button type="submit" class="monthtoggle" id="monthtogglenext" (click)="nextmonth()"> > </button>
+          <ul>
+            <li *ngFor="let day of dayslist; let i = index" [attr.data-index]="i">{{dayslist[i]}}</li>
+          </ul>
+          <ul>
+            <div *ngFor="let date of dates; let i = index" [attr.data-index]="i">
+              <li> <span [hidden]="activedate[i]">{{dates[i]}}</span> <span [hidden]="!activedate[i]" id="activedate"> {{dates[i]}} </span> </li>
+          </div>
+          </ul>
+        </div>
+      </div>
+
       <h4>EVENTS THIS WEEK</h4>
       <div id="thisweeksevents"></div>
       <h4>UPCOMING EVENTS</h4>

@@ -10,6 +10,79 @@ import { Component } from '@angular/core';
 })
 
 export class FeedComponent {
+  //calendar stuff
+  today = new Date();
+  monthslist = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  dayslist = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  date = 0;
+  day = 0;
+  month = 0;
+  year = 0;
+  monthcount = 0;
+  //number of days in the month
+  displaymonth = "";
+  displayday = "";
+  gap = 0;
+  //gets the first day name of the 1st day of a month.
+  dates = [];
+  activedate = {};
+  plandates = [new Date(2017, 9, 3)];
+  plans = [];
+
+  todaydate() {
+    this.date = this.today.getDate();
+    this.day = this.today.getDay();
+    this.month = this.today.getMonth();
+    this.year = this.today.getFullYear();
+    this.refreshcalendar();
+  }
+
+  refreshcalendar() {
+    this.displaymonth = this.monthslist[this.month];
+    this.displayday = this.dayslist[this.day];
+    this.gap = new Date(this.year, this.month, 1).getDay();
+
+    this.monthcount = new Date(this.year, this.month+1, 0).getDate();
+    this.dates = Array(this.monthcount+1).fill(0).map((x,i)=>i).slice(1,100);
+    //the slice is to remove the first zero. probably a better way to do that.
+    for (let i=0; i<this.gap; i++) {
+      this.dates.unshift(Array(1).fill("-"));
+    }
+    //the above puts dashes to make sure that the first day aligns with the correct date.
+    if (this.month === this.today.getMonth() && this.year ===this.today.getFullYear()) {
+      this.activedate={[this.date + this.gap - 1]: true};
+    }
+    else {this.activedate={[this.date + this.gap - 1]: false}}
+
+    // if (this.month === this.plandates[0].getMonth()) {
+    //   this.
+    // }
+  }
+
+  nextmonth() {
+    if (this.month===11) {
+      this.year+=1;
+      this.month=0;
+    }
+    else {
+    this.month+= 1;
+    }
+    this.refreshcalendar();
+  }
+
+  prevmonth() {
+    if (this.month===0) {
+      this.year-=1;
+      this.month=11;
+    }
+    else {
+    this.month -=1;
+    }
+    this.refreshcalendar();
+  }
+
+  //end calendar stuff
 
   testcards =
     [
@@ -29,6 +102,8 @@ export class FeedComponent {
   feedinput = "";
 
   ngOnInit() {
+    this.todaydate();
+
     //sort that JSON list!
     this.testcards.sort((a, b) => {
     return new Date(a.date).getTime() - new Date(b.date).getTime()
