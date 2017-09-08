@@ -513,11 +513,11 @@ body {
   padding-left: 5px;
 }
 
-#days {
+.days {
   width: 100%;
 }
 
-#days p {
+.days p {
   font-size: 12px;
   text-align: center;
   letter-spacing: 2px;
@@ -525,15 +525,13 @@ body {
   color: blue;
 }
 
-#days ul {
+.days ul {
   padding: 0px;
 }
 
-#days li {
+.days li {
   font-size: 10px;
-  display: inline-block;
   padding: 0px;
-  border: 0px solid rgba(0,0,0,.1);
   width: 14.28%;
   /*this allows for equal spacing*/
   text-align: center;
@@ -549,7 +547,7 @@ body {
   height: 100px;
 }
 
-#calendar {
+.calendar {
   border: 1px solid rgba(0,0,0,.3);
   border-radius: 5px;
   width: 95%;
@@ -582,11 +580,33 @@ body {
   right: 30px;
 }
 
-#activedate {
+.activedate {
   color: red;
-  border: 1px solid red;
-  padding: 0px 3px;
-  border-radius: 15px;
+}
+
+.plandate {
+  color: blue;
+}
+
+#calendardates {
+  border: 1px solid white;
+  border-collapse: collapse;
+  background-color: rgb(251, 249, 254);
+  float: left;
+  width: 14.28%;
+  outline: none;
+}
+
+#calendardates li {
+  width: 100%;
+}
+
+#calendardates:hover {
+  background-color: rgba(255,255,255,.2);
+}
+
+#calendardates:active {
+  background-color: rgb(245,245,245);
 }
 
 #todaysdate {

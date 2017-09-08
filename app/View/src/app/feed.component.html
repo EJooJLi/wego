@@ -4,7 +4,7 @@
     <h2> Where to go and what to see? </h2>
     <input id="feedinput" [(ngModel)]="feedinput" placeholder=". . .">
     <button type="submit" id="feedsubmit" (click)="feedsubmit()"></button>
-    <img id="feedprofilepic" alt="*profilepic*" src="https://avatars2.githubusercontent.com/u/18385437?v=4&s=460">
+    <img id="feedprofilepic" alt="*profilepic*" src={{profpic}}>
   </div>
   <div class="feed">
     <div class="feedcard" *ngFor="let title of testcards; let i = index" [attr.data-index]="i" [hidden]="testcards[i].removed">
@@ -22,19 +22,19 @@
       <div id="currentweather"></div>
       <h4 style="display:inline-block;">CALENDAR  ( {{savedcards.length}} total events ) </h4>
       <button type="submit" id="todaysdate" (click)="todaydate()"> TODAY </button>
-      <div id="calendar">
-        <div id= "days">
+      <div class="calendar">
+        <div class= "days">
           <p>{{displaymonth}} {{year}}<p>
             <button type="submit" class="monthtoggle" id="monthtoggleprev" (click)="prevmonth()"> < </button>
             <button type="submit" class="monthtoggle" id="monthtogglenext" (click)="nextmonth()"> > </button>
           <ul>
-            <li *ngFor="let day of dayslist; let i = index" [attr.data-index]="i">{{dayslist[i]}}</li>
+            <li *ngFor="let day of dayslist; let i = index" [attr.data-index]="i">{{day}}</li>
           </ul>
-          <ul>
-            <div *ngFor="let date of dates; let i = index" [attr.data-index]="i">
-              <li> <span [hidden]="activedate[i]">{{dates[i]}}</span> <span [hidden]="!activedate[i]" id="activedate"> {{dates[i]}} </span> </li>
-          </div>
-          </ul>
+              <button type="submit" id="calendardates" *ngFor="let date of dates; let i = index" [attr.data-index]="i">
+                <ul>
+                  <li [class.activedate]="activedate[i]" [class.plandate]="plans[i]"> {{date}} </li>
+                </ul>
+            </button>
         </div>
       </div>
 

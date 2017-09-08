@@ -28,7 +28,7 @@ export class FeedComponent {
   dates = [];
   activedate = {};
   plandates = [new Date(2017, 9, 3)];
-  plans = [];
+  plans = {};
 
   todaydate() {
     this.date = this.today.getDate();
@@ -53,11 +53,15 @@ export class FeedComponent {
     if (this.month === this.today.getMonth() && this.year ===this.today.getFullYear()) {
       this.activedate={[this.date + this.gap - 1]: true};
     }
-    else {this.activedate={[this.date + this.gap - 1]: false}}
+    else { this.activedate={[this.date + this.gap - 1]: false} }
 
-    // if (this.month === this.plandates[0].getMonth()) {
-    //   this.
-    // }
+    for (let i=0; i<this.plandates.length; i++) {
+      if (this.month === this.plandates[i].getMonth()-1) {
+        this.plans={[this.plandates[i].getDate() + this.gap -1]: true}
+      }
+      //else { this.plans={[this.plandates[i].getDate() + this.gap - 1]: false} }
+  }
+
   }
 
   nextmonth() {
@@ -83,6 +87,8 @@ export class FeedComponent {
   }
 
   //end calendar stuff
+
+  profpic = "https://avatars2.githubusercontent.com/u/18385437?v=4&s=460";
 
   testcards =
     [
