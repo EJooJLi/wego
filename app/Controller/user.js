@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 // User object and functions that is declared in the controller/user.js file
 // Require the Schema and creating the User object

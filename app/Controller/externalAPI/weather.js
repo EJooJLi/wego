@@ -1,36 +1,37 @@
+"use strict";
+
 let express = require('express'); // For built-in middleware
 let request = require('request');
+require("dotenv").config();
 
-// Testing by assiging coordinates - remove to do E2E Testing
-// var coord = {
-//   lat: 30,
-//   lng: 55
-// }
-
-// Declare WeatherAPI information, consider moving this to .env
 let weatherapi = {
-  key: "&APPID=740db4574e5fd4a81b4608e9f5d615e6",
+  key: "&appid=f5823bb83b3698f8b5e825d79e11ec75",
   root: "http://api.openweathermap.org/data/2.5/weather\?",
   units: "&units=imperial"
 };
 
-// Function to get Weather information
-exports.getWeather = function(err, callback) {
-    if (err) {
-        console.log("Error!", err);
-        return;
-    } else {
-      // Create a coordinate string for weather API
+module.exports = {
+  getWeather: function(coord) {
+    if (coord) {
       var coordString = "lat="+coord.lat+"&lon="+coord.lng;
       var weatherURL = `${weatherapi.root}${coordString}${weatherapi.units}${weatherapi.key}`
       request(weatherURL, function(err, response, body){
-        console.log(JSON.parse(body));
-        return body;
-      });
+        // console.log(JSON.parse(body));
+
+        callback(null, body);
+      })
+    } else {
+        callback(new Error("No coords"));
     }
+  }
 }
 
-// Testing
-// getWeather(coord);
-
-// Export this out to use on apiController.js
+var callback = function(err, data) {
+  if (err) {
+    console.log(err);
+    return;
+  } else {
+    console.log(JSON.parse(data));
+    return;
+  }
+}
