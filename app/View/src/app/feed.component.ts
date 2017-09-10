@@ -154,7 +154,7 @@ export class FeedComponent {
     for (let i=0; i<this.savedcards.length; i++) {
       let sdate = new Date(this.savedcards[i].date);
       let date = new Date(sdate.getFullYear(), sdate.getMonth(), sdate.getDate()+1);
-      if (date.getFullYear() === this.today.getFullYear() && date.getMonth() === this.today.getMonth()) {
+      if (date.getFullYear() === this.year && date.getMonth() === this.month) {
         this.plans[date.getDate()+this.gap-1]= true;
       }
     }
