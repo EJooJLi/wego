@@ -113,6 +113,7 @@ export class FeedComponent {
   dates; //array of dates in a given month (1-28/29/30/31)
   activedate; //current date that is highlighed on the calendar
   plans = {}; //array that will have the dates for the plans
+  specplans = [];
 
   todaydate() {
     //this fxn takes you to the current month view
@@ -156,6 +157,22 @@ export class FeedComponent {
       let date = new Date(sdate.getFullYear(), sdate.getMonth(), sdate.getDate()+1);
       if (date.getFullYear() === this.year && date.getMonth() === this.month) {
         this.plans[date.getDate()+this.gap-1]= true;
+      }
+    }
+  }
+
+  //this shows the saved cards ONLY for the clicked date
+
+  dateclick (i: number) {
+    this.specplans = [];
+    for (let j=0; j<this.savedcards.length; j++) {
+      let sdate = new Date(this.savedcards[j].date);
+      let date = new Date(sdate.getFullYear(), sdate.getMonth(), sdate.getDate()+1);
+      let plandate = new Date(this.year, this.month, i-this.gap+1);
+
+      if (plandate.getTime() === date.getTime()) {
+        this.specplans.push(this.savedcards[j]);
+        console.log(this.specplans);
       }
     }
   }

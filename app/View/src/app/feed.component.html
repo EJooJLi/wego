@@ -30,15 +30,17 @@
           <ul>
             <li *ngFor="let day of dayslist; let i = index" [attr.data-index]="i">{{day}}</li>
           </ul>
-              <button type="submit" id="calendardates" *ngFor="let date of dates; let i = index" [attr.data-index]="i">
+              <button type="submit" id="calendardates" *ngFor="let date of dates; let i = index" [attr.data-index]="i" (click)="dateclick(i)">
                 <ul>
                   <li [class.activedate]="activedate[i]" [class.plandate]="plans[i]"> {{date}} </li>
                 </ul>
             </button>
         </div>
       </div>
-      <h4>UPCOMING EVENTS</h4>
-      <div id="upcomingevents"></div>
+      <h4>EVENTS</h4>
+      <div id="upcomingevents">
+        <p *ngFor="let plan of specplans; let i = index" [attr.data-index]="i"> {{specplans[i].title}} </p>
+      </div>
     <br/>
   </div>
 </div>
