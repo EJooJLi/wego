@@ -35,6 +35,13 @@ var UserSchema = new Schema({
   salt: {
     type: String
   },
+  defaultAddress: {
+    type: String
+  },
+  coord: {
+    lat: Number,
+    lng: Number
+  },
   location: {
     type: String,
     required: true

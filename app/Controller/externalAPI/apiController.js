@@ -5,20 +5,21 @@ var weather = require("./weather");
 var yelp = require("./yelp");
 var events = require("./events");
 var NodeGeocoder = require("node-geocoder");
-var HttpsAdapter = require('node-geocoder/lib/httpadapter/httpsadapter.js')
+var HttpsAdapter = require('node-geocoder/lib/httpadapter/httpsadapter.js');
 var httpAdapter = new HttpsAdapter(null, {
   headers: {
     'user-agent': 'My application <email@domain.com>',
     'X-Specific-Header': 'Specific value'
   }
 });
+require("dotenv").config();
 
 /**
 * Getting coordinates
 */
 var geocoder = NodeGeocoder({
   provider: "google",
-  apiKey: "AIzaSyByfXpktliHp3ihiDCBRcDy8JU800DwFZ0",
+  apiKey: process.env.GOOGLEAPIKEY,
   httpAdapter: httpAdapter,
   formatter: null
 });
@@ -26,85 +27,61 @@ var geocoder = NodeGeocoder({
 // Declare an empty coord variable
 var coord = {};
 // Testing variables
-var cachedCoord = {};
 var hasOverride = false;
-var defaultAddress = "2655 Prosperity Ave Fairfax VA 22031";
-var permCoord = {};
+var searchAddress = null;
+var myAddress = "2655 Prosperity Ave Fairfax";
+var permCoord = null;
+// var weatherInfo = {};
+// var eventInfo = {};
+// var yelpInfo = {};
 
-// 3 different coord definitions are defined below in the IF-ELSEIF statement
-
-// If there are any overrides in address, use the cached override
-if (hasOverride) {
-  coord = cachedCoord;
-  console.log("1");
-  return coord;
-}
-
-// If user has a default address saved on profile & no perm coordinates
-// Call the Google Geocoder API and save the coordinates to perm coordinates
-else if (defaultAddress != null && permCoord != null) {
-  // geocoder.geocode(req.address, function(err, res){
-  geocoder.geocode(defaultAddress, function(err, res){
-  // Assigning latitude and longitude
-    var permCoord = {
-      lat: res[0].latitude,
-      lng: res[0].longitude
-    }
+function google(hasOverride, address, defaultAddress, permCoord){
+  // Case 1 - When there's an override that the user initiates by manually searching for
+  // a specific address -- We will need to geocode the address 1st before proceeding
+  if (hasOverride){
+    geocoder.geocode(address, function(err, res){
+      if (err) {
+        return err;
+      } else {
+        coord = {
+          lat: res[0].latitude,
+          lng: res[0].longitude
+        }
+        weather.getWeather(coord);
+      }
+    });
+  }
+  // Case 2 - When an user has a defaultAddress but no permanent coordinates, this means
+  // that the user has never geocoded before -- We will need to geocode and store it
+  else if (defaultAddress != null && permCoord == null) {
+    geocoder.geocode(defaultAddress, function(err, res){
+      if (err) {
+        return err;
+      } else {
+        coord = {
+          lat: res[0].latitude,
+          lng: res[0].longitude
+        }
+        permCoord = coord;
+        weather.getWeather(permCoord);
+      }
+    });
+  }
+  // Case 3 - When an user has a defaultAddress & a permanent coordinates, this means
+  // that the user has geocoded before -- We should just use the existing coord
+  else if (defaultAddress != null && permCoord != null) {
     coord = permCoord;
-    console.log("2"+coord.lat);
     return coord;
-  });
-}
-// If user has a default address saved on profile & has perm coordinates
-// Use the perm coordinates
-else if (defaultAddress != null && permCoord == null) {
-  coord = permCoord;
-  console.log("3"+coord);
-  return coord;
+  }
 }
 
-/**
-* Getting weather data
-*/
+function callback(err, data) {
+  if(err) {
+    console.log(err);
+    return;
+  }
+  console.log(data);
+};
 
-// Use the coordinates (perm or override) and call weather.js
-function getWeather(coord, callback) {
-  weather.getWeather(coord, function(err, data){
-    if (err) {
-      return callback(err);
-    } else {
-      return callback(data); //may need to add a try-catch & parse JSON
-    }
-  });
-}
-
-/**
-* Getting the yelp data
-*/
-
-// Use the coordinates (perm or override) and call yelp.js
-function getYelp(coord, callback) {
-  yelp.getYelp(coord, function(err, data){
-    if (err) {
-      return callback(err);
-    } else {
-      return callback(data); //may need to add a try-catch & parse JSON
-    }
-  });
-}
-
-/**
-* Getting event data
-*/
-
-// Use the coordinates (perm or override) and call event.js
-function getEvents(coord, callback) {
-  events.getEvents(coord, function(err, data){
-    if (err) {
-      return callback(err);
-    } else {
-      return callback(data); //may need to add a try-catch & parse JSON
-    }
-  });
-}
-// Save these information and export so that the preference filters can be applied
+// Actual execution, running googleAPI to get coord first, then passing the coord into weatherAPI
+google(hasOverride, searchAddress, myAddress, permCoord);

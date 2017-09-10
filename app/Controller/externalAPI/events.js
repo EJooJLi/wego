@@ -14,9 +14,10 @@ let eventapi = {
 }
 
 // Function to get Events information
-var getEvents = function(coord, err, callback) {
+var getEvents = function(err, callback) {
     if (err) {
-        return callback(err);
+      console.log("Error!", err);
+      return;
     } else {
       // Create a coordinate string for events API
       var coordString = "&location="+coord.lat+","+coord.lng;
@@ -29,7 +30,7 @@ var getEvents = function(coord, err, callback) {
 }
 
 // Testing
-getEvents(coord);
+// getEvents(coord);
 
 // Export this out to use on apiController.js
-module.exports = getEvents;
+// module.exports = getEvents;
