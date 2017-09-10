@@ -14,7 +14,6 @@ var httpAdapter = new HttpsAdapter(null, {
 });
 require("dotenv").config();
 
-
 /**
 * Getting coordinates
 */
@@ -26,31 +25,29 @@ var geocoder = NodeGeocoder({
 });
 
 // Declare an empty coord variable
-var coord = {lat: 30.888, lng: 45.632};
+var coord = {};
 // Testing variables
-var cachedCoord = {lat: 30.888, lng: 45.632};
 var hasOverride = false;
 var searchAddress = null;
-var myAddress = "680 Folsom St, SF";
+var myAddress = "2655 Prosperity Ave Fairfax";
 var permCoord = null;
-var weatherInfo = {};
-var eventInfo = {};
-var yelpInfo = {};
+// var weatherInfo = {};
+// var eventInfo = {};
+// var yelpInfo = {};
 
-function google(hasOverride, address, defaultAddress, permCoord, callback){
+function google(hasOverride, address, defaultAddress, permCoord){
   // Case 1 - When there's an override that the user initiates by manually searching for
   // a specific address -- We will need to geocode the address 1st before proceeding
   if (hasOverride){
     geocoder.geocode(address, function(err, res){
       if (err) {
-        callback(new Error("Geocoding Error!"));
-        return;
+        return err;
       } else {
         coord = {
           lat: res[0].latitude,
           lng: res[0].longitude
         }
-        return coord;
+        weather.getWeather(coord);
       }
     });
   }
@@ -59,15 +56,14 @@ function google(hasOverride, address, defaultAddress, permCoord, callback){
   else if (defaultAddress != null && permCoord == null) {
     geocoder.geocode(defaultAddress, function(err, res){
       if (err) {
-        callback(new Error("Geocoding Error!"));
-        return;
+        return err;
       } else {
         coord = {
           lat: res[0].latitude,
           lng: res[0].longitude
         }
         permCoord = coord;
-        return coord;
+        weather.getWeather(permCoord);
       }
     });
   }
@@ -77,8 +73,6 @@ function google(hasOverride, address, defaultAddress, permCoord, callback){
     coord = permCoord;
     return coord;
   }
-  // // Call the weather API
-  // weather.getWeather(coord, callback);
 }
 
 function callback(err, data) {
@@ -89,4 +83,5 @@ function callback(err, data) {
   console.log(data);
 };
 
-google(hasOverride, searchAddress, myAddress, permCoord, weather.getWeather(coord, callback));
+// Actual execution, running googleAPI to get coord first, then passing the coord into weatherAPI
+google(hasOverride, searchAddress, myAddress, permCoord);
