@@ -37,7 +37,7 @@
             </button>
         </div>
       </div>
-      <h4 style="display:inline-block;">SAVED EVENTS</h4>
+      <h4 style="display:inline-block;"> SAVED UPCOMING EVENTS </h4>
       <button type="submit" id="todaysdate" (click)="refreshcalendar()"> Show All </button>
       <div id="upcomingevents">
         <p *ngFor="let plan of upcomingplans; let i = index" [attr.data-index]="i"> {{upcomingplans[i].date | date}} : {{upcomingplans[i].title}} </p>
