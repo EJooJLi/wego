@@ -15,9 +15,9 @@ export class FeedComponent {
   testcards =
     [
     {title: "How about a hike?", date: "2017-09-03", content: "Cool weather, cloudy skies, beautiful views at Yosemite", saved: false, removed: false},
-    {title: "Visit the museum?", date: "2017-09-05", content: "Rainy days don't have to ruin your plans!", saved: false, removed: false},
-    {title: "Free concert!", date: "2017-09-01", content: "But it's free", saved: false, removed: false},
-    {title: "It's going to snow!", date: "2017-09-04", content: "Let it snow, let it snow", saved: false, removed: false},
+    {title: "Visit the museum?", date: "2017-09-15", content: "Rainy days don't have to ruin your plans!", saved: false, removed: false},
+    {title: "Free concert!", date: "2017-09-10", content: "But it's free", saved: false, removed: false},
+    {title: "It's going to snow!", date: "2017-09-22", content: "Let it snow, let it snow", saved: false, removed: false},
     {title: "How about a hike?", date: "2017-10-03", content: "Cool weather, cloudy skies, beautiful views at Yosemite", saved: false, removed: false},
     {title: "Visit the museum?", date: "2017-10-05", content: "Rainy days don't have to ruin your plans!", saved: false, removed: false},
     {title: "Free concert!", date: "2017-10-01", content: "But it's free", saved: false, removed: false},

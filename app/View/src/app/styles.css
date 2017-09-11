@@ -544,7 +544,7 @@ body {
   width: 95%;
   margin: auto;
   margin-top: 10px;
-  height: 100px;
+  height: auto;
 }
 
 .calendar {
