@@ -20,11 +20,11 @@
   <div class="sidebar">
       <h4>WEATHER</h4>
       <div id="currentweather"></div>
-      <h4 style="display:inline-block;">CALENDAR  ( {{savedcards.length}} total events ) </h4>
-      <button type="submit" id="todaysdate" (click)="todaydate()"> TODAY </button>
+      <h4 style="display:inline-block;"> CALENDAR </h4>
+      <button type="submit" id="todaysdate" (click)="todaysdate()"> TODAY </button>
       <div class="calendar">
         <div class= "days">
-          <p>{{displaymonth}} {{year}}<p>
+          <p>{{firstdate | date : "MMMM"}} {{year}}<p>
             <button type="submit" class="monthtoggle" id="monthtoggleprev" (click)="prevmonth()"> < </button>
             <button type="submit" class="monthtoggle" id="monthtogglenext" (click)="nextmonth()"> > </button>
           <ul>
@@ -37,9 +37,10 @@
             </button>
         </div>
       </div>
-      <h4>EVENTS</h4>
+      <h4 style="display:inline-block;">SAVED EVENTS</h4>
+      <button type="submit" id="todaysdate" (click)="refreshcalendar()"> Show All </button>
       <div id="upcomingevents">
-        <p *ngFor="let plan of specplans; let i = index" [attr.data-index]="i"> {{specplans[i].title}} </p>
+        <p *ngFor="let plan of upcomingplans; let i = index" [attr.data-index]="i"> {{upcomingplans[i].date | date}} : {{upcomingplans[i].title}} </p>
       </div>
     <br/>
   </div>
