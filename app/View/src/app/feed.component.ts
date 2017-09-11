@@ -12,6 +12,8 @@ import { Component } from '@angular/core';
 export class FeedComponent {
   profpic = "https://avatars2.githubusercontent.com/u/18385437?v=4&s=460";
 
+//***********CARD STUFF BEGINS*****************
+
   testcards =
     [
     {title: "How about a hike?", date: "2017-09-03", content: "Cool weather, cloudy skies, beautiful views at Yosemite", saved: false, removed: false},
@@ -22,7 +24,7 @@ export class FeedComponent {
     {title: "Visit the museum?", date: "2017-10-05", content: "Rainy days don't have to ruin your plans!", saved: false, removed: false},
     {title: "Free concert!", date: "2017-10-01", content: "But it's free", saved: false, removed: false},
     {title: "It's going to snow!", date: "2017-10-04", content: "Let it snow, let it snow", saved: false, removed: false}
-    ]
+  ] //cards that will be from the DB&API based on preferences
 
   savedcards = []; //user saved cards
   removedcards = []; //user removed cards
@@ -79,6 +81,7 @@ export class FeedComponent {
   // feedsubmit() {
   //   document.cookie = this.feedinput, "; expires=Thu, 5 September 2017 12:00:00 UTC; path=/feed";
   // }
+//***********************CARD STUFF ENDS**********************
 //***********************CALENDAR STUFF***********************
 
   today = new Date(); //js function to get today's date
@@ -192,6 +195,13 @@ export class FeedComponent {
     this.refreshcalendar();
   }
 
-  //end calendar stuff
+//*****************END CALENDAR STUFF********************
+//*****************BEGIN WEATHER STUFF*******************
+
+  //information will be coming from API/DB
+  todayweather = {High: 75, Low: 65, Forecast: "Cloudy"};
+  location = "San Francisco, CA";
+
+  
 
 }
