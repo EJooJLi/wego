@@ -64,6 +64,7 @@ function google(hasOverride, address, defaultAddress, permCoord){
         }
         permCoord = coord;
         weather.getWeather(permCoord);
+        events.getEvents(permCoord);
       }
     });
   }
