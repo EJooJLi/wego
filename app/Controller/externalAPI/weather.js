@@ -22,7 +22,7 @@ module.exports = {
         callback(null, body);
       })
     } else {
-        callback(new Error("No coords"));
+        callback(new Error("No coords specified for Weather API"));
     }
   }
 }

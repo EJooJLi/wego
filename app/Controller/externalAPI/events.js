@@ -21,7 +21,7 @@ module.exports = {
         callback(null, body.events.event);
       });
     } else {
-        callback(new Error("No coords"));
+        callback(new Error("No coords specified for Events API"));
     }
   }
 }

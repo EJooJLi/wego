@@ -49,7 +49,9 @@ function google(hasOverride, address, defaultAddress, permCoord){
           lat: res[0].latitude,
           lng: res[0].longitude
         }
+        // Using the coord given to override permCoord
         weather.getWeather(coord);
+        events.getEvents(coord);
       }
     });
   }
@@ -64,8 +66,9 @@ function google(hasOverride, address, defaultAddress, permCoord){
           lat: res[0].latitude,
           lng: res[0].longitude
         }
+        // Updating permCoord since it was empty
         permCoord = coord;
-        // weather.getWeather(permCoord);
+        weather.getWeather(permCoord);
         events.getEvents(permCoord);
       }
     });
@@ -73,18 +76,19 @@ function google(hasOverride, address, defaultAddress, permCoord){
   // Case 3 - When an user has a defaultAddress & a permanent coordinates, this means
   // that the user has geocoded before -- We should just use the existing coord
   else if (defaultAddress != null && permCoord != null) {
-    coord = permCoord;
-    return coord;
+    // Flat out get weather and event info using the permCoord
+    weather.getWeather(permCoord);
+    events.getEvents(permCoord);
   }
 }
 
-function callback(err, data) {
-  if(err) {
-    console.log(err);
-    return;
-  }
-  console.log(data);
-};
+// function callback(err, data) {
+//   if(err) {
+//     console.log(err);
+//     return;
+//   }
+//   console.log(data);
+// };
 
 // Actual execution, running googleAPI to get coord first, then passing the coord into weatherAPI
 google(hasOverride, searchAddress, myAddress, permCoord);
