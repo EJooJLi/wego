@@ -4,6 +4,7 @@ let express = require('express'); // For built-in middleware
 let request = require('request');
 // require("dotenv").config();
 
+// Declare weatherapi information, consider moving this to .env for masking key
 let weatherapi = {
   key: "&appid=f5823bb83b3698f8b5e825d79e11ec75",
   root: "http://api.openweathermap.org/data/2.5/weather\?",

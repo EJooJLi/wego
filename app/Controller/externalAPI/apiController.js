@@ -1,5 +1,7 @@
 // The API controller
 
+"use strict";
+
 // Require weather.js, yelp.js, events.js
 var weather = require("./weather");
 var yelp = require("./yelp");
@@ -63,7 +65,7 @@ function google(hasOverride, address, defaultAddress, permCoord){
           lng: res[0].longitude
         }
         permCoord = coord;
-        weather.getWeather(permCoord);
+        // weather.getWeather(permCoord);
         events.getEvents(permCoord);
       }
     });
