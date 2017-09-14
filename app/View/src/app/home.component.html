@@ -1,56 +1,16 @@
 <!-- This is not the actual html file, but a component. Actual HTML is index.html -->
-<div class="homepage" id="homepageimages" [style.backgroundImage]="'url('+images[0]+')'">
-<h1> WeGo </h1>
-<div id="homeuserinputbox">
-  <form style="margin:90px 0px 200px 0px;">
-    <p>What's the plan?</p>
-    <br/>
-    <div>
-    <input type="text" id="homepageinput" #plans (keyup)="0">
-    <!-- the key up allows for "prompt.value" to be updated live-->
-    <button type="submit" id="homesubmit" (click)="formsubmit(plans.value)" (click)="sendinfo()"> Let's go! </button>
-    <button type="submit" id="homesubmit" (click)="getinfo()"> GET! </button>
+<div class="homepage">
+  <div id="centertext">
+    <h1> GoPug </h1>
+    <p> Sign Up </p>
   </div>
-  </form>
+  <div class="homepagecontainer">
+    <div id="homecardcontainer">
+      <div id="homecards" *ngFor="let card of homecards; let i = index" [attr.data-index]="i"> <img id="homepics" *ngIf="i==0||i==2||i==4||i==6||i==8" src="{{card}}" alt="pic">
+        <p>{{card}}</p>
+      </div>
+    </div>
+  </div>
 </div>
-<br/>
-<p style="text-align: center;"> </p>
-</div>
-
-<div class="homepage" id="homepageimages" [style.backgroundImage]="'url('+images[1]+')'">
-  <h2> What is WeGo? </h2>
-  <div class="homepagetext">
-  <h3> Missed or ruined opportunities..? </h3> <br/>
-      <p> A thing of the past. </p> <br/>
-      <h3> Weather and activity coordination </h3><br/>
-      <p> Cool weather and clear skies for that hike. <br/>
-      Rainy days for visiting your favorite museum. <br/>
-      Cloudy and cool weather for that outdoor concert. </p> <br/>
-      <h3> Notifications for your favorite events </h3><br/>
-</div>
-</div>
-
-<div class="homepage" id="homepageimages" [style.backgroundImage]="'url('+images[2]+')'">
-  <h2> How does it work? </h2>
-  <div class="homepagetext">
-  <p> There are three simple steps </p><br/>
-  <ol>
-    <li> Sign Up! </li><br/>
-    <li> Fill out your user profile </li><br/>
-    <li> Check your daily feed </li><br/>
-    <p> NOTE: put pictures of the stuff for reference </p>
-  </ol>
-</div>
-</div>
-
-<div class="homepage" id="homepageimages" [style.backgroundImage]="'url('+images[3]+')'">
-  <h2> Our Story </h2>
-  <div class="homepagetext">
-  <p> WeGo was created by two San Francisco Bay Area residents
-      that were simply tired of having their plans rained on, sometimes literally.
-      With foggy days ruining great views, to hot days ruining great hikes,
-      having the ability to having these activities with the weather in mind would alleviate these woes.
-      And so WeGo was born and expanded to serve more purpose than a simple weather check.
-  </p>
-</div>
-</div>
+<!--
+*ngFor="for pics of homepictures"><img src="pics"> -->

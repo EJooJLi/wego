@@ -14,35 +14,19 @@ import { Headers } from '@angular/http';
 })
 
 export class HomeComponent {
-  images =  ["http://az616578.vo.msecnd.net/files/2015/06/08/635693880042525992-518822648_couple-hiking-valley.jpg",
-             "http://cdn.visitmammoth.com/sites/default/master/files/images/hero_images/hiking.jpg",
-             "http://www.greenland.com/media/4748/hiking-in-east-greenland-1.jpg?width=1920&height=1280&mode=crop&format=jpg&quality=95",
-              "https://blogmedia.evbstatic.com/wp-content/uploads/rally/2017/05/19122957/1U8A9059-49-1500x750.jpg"];
-  shownav = true;
 
-  navtoggle (shownav: string) {
-    this.shownav=!this.shownav;
-  }
+  profpic = "https://avatars2.githubusercontent.com/u/18385437?v=4&s=460";
 
-  constructor(private http: Http) { }
+  homecards = [
+    "https://www.romanticasheville.com/sites/default/files/images/basic_page/biltmore_concerts2.jpg",
+    "Currently in San Francisco: Stern Grove Outdoor Music Festival",
+    "https://adventurejunkies-theadventurejunk.netdna-ssl.com/wp-content/uploads/hiking-guide-copy-2.jpg",
+    "Calendar snippet here",
+    this.profpic,
+    "Weather example here",
+    "http://stooffi.com/wp-content/uploads/2016/02/P1220481.jpg",
+    "GoPug helps you do the things you love",
+    "https://drscdn.500px.org/photo/61919969/q%3D80_m%3D1500/4d55da71b5871f528b663e0902a9cb8d"
+  ]
 
-  userinfo={};
-
-  formsubmit(info: string) {
-    this.userinfo={location: info};
-  }
-
-  sendinfo() {
-
-    console.log("POST");
-    let url = `http://localhost:3000/weather`;
-    this.http.post(url, this.userinfo, 'Access-Control-Allow-Origin: *').subscribe(res => console.log(res));
-  }
-
-  getinfo() {
-
-    console.log("GET");
-    let url = `http://localhost:3000/weather`;
-    this.http.get(url, this.userinfo).subscribe(res => console.log(res.json()));
-  }
 }
