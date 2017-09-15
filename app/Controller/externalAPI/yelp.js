@@ -1,62 +1,54 @@
 "use strict";
 
-let express = require('express'); // For built-in middleware
 let request = require('request');
 
-let yelp = require('yelp-fusion');
+const baseUrl = "https://api.yelp.com/v3/";
+// let yelp = require('yelp-fusion');
 // require("dotenv").config();
 
 // Declare yelpAPI information, consider moving this to .env for masking key
-let yelpApi = {
+let params = {
   clientId: "gvoopiGyUuYlUpLOuPfjog",
-  baseUrl: 'https://api.yelp.com/v3/',
   clientSecret: "p3810uWn3epCNVnPSOItcpiYttrXXL0vbGdGxoWroA8Iadx7ZQtPzIIog0OZ4YXS"
 };
-
-// let coord = {
-//   latitude: 31.55,
-//   longitude: 67.34
-// }
 
 // ClientID: gvoopiGyUuYlUpLOuPfjog
 // ClientSecret: p3810uWn3epCNVnPSOItcpiYttrXXL0vbGdGxoWroA8Iadx7ZQtPzIIog0OZ4YXS
 
 
-// Create a function called getWeather for this module that we eventually
+// Create a function called getYelp for this module that we eventually
 // exports to the apiController
 
 module.exports = {
   getYelp: function(coord) {
     if (coord) {
-      yelp.accessToken(yelpApi.clientId, yelpApi.clientSecret).then(response => {
-        console.log("connected");
-        const client = yelp.client(response.jsonBody.access_token);
-        const formattedCoord = {
-          latitude: coord.lat,
-          longitude: coord.lng
-        };
-        console.log(formattedCoord);
-        client.search(formattedCoord).then(response => {
-          const firstResult = response.jsonBody.business[0];
-          console.log(firstResult);
-          const prettyJson = JSON.stringify(firstResult, null, 4);
-          console.log(prettyJson);
-        });
-      }).catch(e => {
-        console.log(e);
-      });
-    } else {
-      callback(new Error("No coords specified for Yelp API"));
+      request();
     }
   }
 }
-//       var coordString = "lat="+coord.lat+"&lon="+coord.lng;
-//       var weatherURL = `${weatherapi.root}${coordString}${weatherapi.units}${weatherapi.key}`
-//       request(weatherURL, function(err, response, body){
-//         callback(null, body);
-//       })
+
+// module.exports = {
+//   getYelp: function(coord) {
+//     if (coord) {
+//       yelp.accessToken(yelpApi.clientId, yelpApi.clientSecret).then(response => {
+//         console.log("connected");
+//         const client = yelp.client(response.jsonBody.access_token);
+//         const formattedCoord = {
+//           latitude: coord.lat,
+//           longitude: coord.lng
+//         };
+//         console.log(formattedCoord);
+//         client.search(formattedCoord).then(response => {
+//           const firstResult = response.jsonBody.business[0];
+//           console.log(firstResult);
+//           const prettyJson = JSON.stringify(firstResult, null, 4);
+//           console.log(prettyJson);
+//         });
+//       }).catch(e => {
+//         console.log(e);
+//       });
 //     } else {
-//         callback(new Error("No coords specified for Weather API"));
+//       callback(new Error("No coords specified for Yelp API"));
 //     }
 //   }
 // }
@@ -70,4 +62,11 @@ var callback = function(err, data) {
     console.log(JSON.parse(data));
     return;
   }
+}
+
+// Defining a function to construct the queries from plain coords
+function coordToQuery(json) {
+  var coordString = "latitude="+json.lat+"&longitude="+json.lng;
+  var queryParam = "?" + `${coordString}${params.units}${params.appid}`;
+  return queryParam;
 }

@@ -7,11 +7,11 @@ var weather = require("./weather");
 var yelp = require("./yelp");
 var events = require("./events");
 var NodeGeocoder = require("node-geocoder");
-var HttpsAdapter = require('node-geocoder/lib/httpadapter/httpsadapter.js');
+var HttpsAdapter = require("node-geocoder/lib/httpadapter/httpsadapter.js");
 var httpAdapter = new HttpsAdapter(null, {
   headers: {
-    'user-agent': 'My application <email@domain.com>',
-    'X-Specific-Header': 'Specific value'
+    "user-agent": "My application <email@domain.com>",
+    "X-Specific-Header": "Specific value"
   }
 });
 require("dotenv").config();
@@ -82,14 +82,6 @@ function google(hasOverride, address, defaultAddress, permCoord){
     events.getEvents(permCoord);
   }
 }
-
-// function callback(err, data) {
-//   if(err) {
-//     console.log(err);
-//     return;
-//   }
-//   console.log(data);
-// };
 
 // Actual execution, running googleAPI to get coord first, then passing the coord into weatherAPI
 google(hasOverride, searchAddress, myAddress, permCoord);
