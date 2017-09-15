@@ -3,7 +3,6 @@
 let request = require('request');
 // require("dotenv").config();
 
-// Declare weatherapi information, consider moving this to .env for masking key
 const baseUrl = "http://api.openweathermap.org/data/2.5/weather";
 
 let params = {
@@ -36,6 +35,7 @@ function callback(err, data) {
   }
 }
 
+// Defining a function to construct the queries from plain coords
 function coordToQuery(json) {
   var coordString = "lat="+json.lat+"&lon="+json.lng;
   var queryParam = "?" + `${coordString}${params.units}${params.appid}`;

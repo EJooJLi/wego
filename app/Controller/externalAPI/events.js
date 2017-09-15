@@ -2,10 +2,11 @@
 
 let request = require('request');
 
+const baseUrl = "http://api.eventful.com/json/events/search";
+
 // Declare eventapi information, consider moving this to .env for masking key
-let eventapi = {
+let params = {
   key: "&app_key=Msm3HTBsBfRVV6Ps",
-  root: "http://api.eventful.com/json/events/search?",
   radius: "&within=10&units=miles"
 }
 
@@ -14,11 +15,9 @@ let eventapi = {
 module.exports = {
   getEvents: function(coord) {
     if (coord) {
-      var coordString = "&location="+coord.lat+","+coord.lng;
-      var eventsURL = `${eventapi.root}${coordString}${eventapi.radius}${eventapi.key}`
-      request(eventsURL,{ json: true },(err, response, body) => {
+      request(baseUrl + coordToQuery(coord), {json:true}, function(err, response, body){
         callback(null, body.events.event);
-      });
+      })
     } else {
         callback(new Error("No coords specified for Events API"));
     }
@@ -34,4 +33,11 @@ function callback(err, data) {
     console.log(data);
     return;
   }
+}
+
+// Defining a function to construct the queries from plain coords
+function coordToQuery(json) {
+  var coordString = "&location="+json.lat+","+json.lng;
+  var queryParam = "?" + `${coordString}${params.radius}${params.key}`;
+  return queryParam;
 }

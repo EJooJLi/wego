@@ -69,7 +69,7 @@ function google(hasOverride, address, defaultAddress, permCoord){
         // Updating permCoord since it was empty
         permCoord = coord;
         weather.getWeather(permCoord);
-        // events.getEvents(permCoord);
+        events.getEvents(permCoord);
         // yelp.getYelp(permCoord);
       }
     });
