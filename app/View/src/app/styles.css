@@ -283,310 +283,129 @@ body {
 }
 
 /*~~~~~~~~~~~FEEDCOMPONENT~~~~~~~~~~~*/
-
-
 .feedpage {
-  width: 100%;
-  background-color: rgba(253, 254, 247, .3);
+  background-color: rgb(253, 249, 244);
+  overflow: auto;
+}
+
+.feedpagetop {
 }
 
 .feedpage h1 {
-  font-size: 40px;
-  position: absolute;
-  width: 100%;
-  border-bottom: 1px solid rgba(0,0,0,.3);
-  margin-left: 150px;
-}
-
-.feedpage h2 {
-  font-size: 15px;
-  font-weight: 300px;
-  position: absolute;
-  margin: 65px 0px 0px 150px;
-}
-
-.feedpage h3 {
-  font-size: 15px;
-}
-
-.feedpage h4 {
-  font-size: 12px;
-  margin-top: 5px;
-}
-
-.feedpage p {
-  font-size: 15px;
-
-}
-
-#feedbar {
-  height: 150px;
-  background-color: rgba(247, 249, 254, 1);
-  border-bottom: 1px solid rgba(0,0,0,.1);
-  padding-left: 55px;
-  padding-top: 10px;
-  position: fixed;
-  z-index: 2;
-  width: 100%;
-  box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0.2);
-}
-
-#savedeventcounter {
-  position: absolute;
-  right: 10px;
-}
-
-#feedinput {
-  background-color: rgba(255,255,255,.6);
-  border: 1px solid rgba(0,0,0,.3);
-  outline: none;
-  padding: 5px;
-  font-size: 15px;
-  font-weight: 10px;
-  width: 400px;
-  position: absolute;
-  margin-left: 150px;
-  margin-top: 90px;
-}
-
-#feedinput:hover {
-  border: 1px solid rgba(0,0,0,.6);
-  outline: none;
-}
-
-#feedinput:focus {
-  border: 1px solid rgba(0,0,0,.8);
-  outline: none;
-}
-
-#feedprofilepic {
-  width: 125px;
-  height: 125px;
-  background-size: contain;
-  border-radius: 25px;
-  border: 1px solid black;
-}
-
-#feedsubmit {
-  margin: auto;
-  outline: none;
-  margin-left: 550px;
-  margin-top: 90px;
-  padding: 5px 10px;
+  color: white;
   font-size: 20px;
-  position: absolute;
-  background-image: url("http://www.stickpng.com/assets/images/585e4ae1cb11b227491c3393.png");
-  background-size: 80%;
-  background-position: center;
-  width: 31px;
-  height: 31px;
-  background-repeat: no-repeat;
-  background-color: rgb(200, 245, 254);
 }
 
-#feedsubmit:hover{
-  background-color: rgb(161, 229, 243);
-  outline: none;
-  cursor: pointer;
+.titlebar {
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(to right, rgb(111, 174, 246) , rgb(88, 143, 205));
+  padding-left: calc(100vw - (16.5vw * 5));
+  padding-top: 10px;
+  /*position: fixed;*/
 }
 
-#feedsubmit:active{
-  background-color: rgba(222, 224, 230, 1)
-}
-
-.feed {
-  width: 70%;
-  margin-top: 40px;
+.map {
   display: inline-block;
-  margin-top: 175px;
-  vertical-align: top;
+  width: 16.5vw;
+  height: 16.5vw;
+  padding: 10px;
 }
 
-.feedcard {
-  border: 1px solid rgba(0,0,0,.3);
-  background-color: rgba(255,255,255,.7);
-  margin: auto;
+.mapimg {
+  height: 100%;
+}
+
+.calimages {
+  height: 30%;
+  max-height: 40px;
+  top: 0px;
+  float: right;
+}
+
+.calcontainer {
+  float: right;
   margin-bottom: 10px;
-  width: 90%;
-  border-radius: 5px;
-  padding: 10px 5px 20px 5px;
-  position: relative;
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
+  /*position: fixed;*/
 }
 
-#feedcardpic {
-  margin: 20px 0px 20px 0px;
-  border: 1px solid black;
-  width: 100%;
-  height: 300px;
-}
-
-.feedcardbutton {
-  position: absolute;
-  top: 0px;
-  outline: none;
-  padding: 2px 4px;
-}
-
-#feedcardtitle {
+.caldate{
   display: inline-block;
+  width: 16.5vw;
+  height: 10.5vw;
+  float: left;
+  padding: 10px;
 }
 
-#feedcarddatesave {
+.feedpagecontent {
+  margin-top: 20px;
+}
+
+.feedsidebar {
   display: inline-block;
-  margin-left: 50px;
-}
-
-#removebutton {
-  right: 50px;
-  background-color: rgb(236, 119, 119);
-}
-
-#savebutton {
-  right: 0px;
-  width: 50px;
-  background-color: rgb(250, 209, 113);
-}
-
-#savebutton:hover, #removebutton:hover {
-  background-color: rgba(0,0,0,.1);
-  outline: none;
-  cursor: pointer;
-}
-
-#savebutton:active, #removebutton:active {
-  background-color: rgba(0,0,0,.3);
-}
-
-.sidebar {
-  width: 29.5%;
-  display: inline-block;
-  vertical-align: top;
-  margin-top: 150px;
+  width: 16.5vw;
+  height: 100vh;
+  float: left;
+  border-right: 1px solid rgb(88, 143, 205);
+  margin-top: 50px;
   position: fixed;
-  border-left: 1px solid rgba(0,0,0,.1);
-  padding-left: 5px;
 }
 
-.days {
-  width: 100%;
+.contentcontainer {
+  float: right;
 }
 
-.days p {
-  font-size: 12px;
-  text-align: center;
-  letter-spacing: 2px;
-  font-weight: bold;
-  color: blue;
-}
-
-.days ul {
-  padding: 0px;
-}
-
-.days li {
-  font-size: 10px;
-  padding: 0px;
-  width: 14.28%;
-  /*this allows for equal spacing*/
-  text-align: center;
+.feedcardcontainer {
+  display: inline-block;
+  width: 16.5vw;
   float: left;
 }
 
-#currentweather {
-  border: 1px solid rgba(0,0,0,.3);
-  border-radius: 5px;
-  width: 95%;
-  margin: auto;
-  margin-top: 10px;
-  height: auto;
+.feedcardbox {
+  width: 16.5vw;
+  height: 16.5vw;
+  margin: 0px 0px 10px 0px;
+  padding: 5px;
 }
 
-.calendar {
-  border: 1px solid rgba(0,0,0,.3);
-  border-radius: 5px;
-  width: 95%;
-  margin: auto;
-  margin-top: 10px;
-  height: 120px;
-  position: relative;
+.feedcardbar {
+  width: 100%;
+  height: 40px;
+  background-color: rgb(175, 234, 249);
 }
 
-.monthtoggle {
-  position: absolute;
-  top: 0px;
+.cardbutton {
   display: inline-block;
-  margin:auto;
+  width: 40px;
+  height: 100%;
+  float: right;
+  outline: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: 7px solid transparent;
   background-color: transparent;
-  outline: none;
-  padding: 0px 5px;
 }
 
-.monthtoggle:hover {
-  color: white;
-  background-color: rgba(0,0,0,.4);
+.cardbutton:hover {
+  border: 5px solid transparent;
 }
 
-#monthtoggleprev {
-  left: 30px;
+#cardlikebutton {
+  background-image: url("https://image.flaticon.com/icons/svg/70/70435.svg");
 }
 
-#monthtogglenext {
-  right: 30px;
+
+#cardlikebutton:active {
+  border: 4px solid transparent;
 }
 
-.activedate {
-  color: red;
-}
-
-.plandate {
-  color: rgb(56, 222, 128);
-}
-
-#calendardates {
-  border: 1px solid white;
-  border-collapse: collapse;
-  background-color: rgb(251, 249, 254);
-  float: left;
-  width: 14.28%;
-  outline: none;
-}
-
-#calendardates li {
+.feedcardcontent {
   width: 100%;
+  height: 100%;
+  box-shadow: 0px 1px 10px 1px rgba(0,0,0,0.2);
+  background: linear-gradient(to bottom, rgb(232, 251, 254) , rgb(245, 249, 250));
 }
 
-#calendardates:hover {
-  background-color: rgba(255,255,255,.2);
-  border: 1px solid rgb(213, 213, 213);
-}
-
-#calendardates:active {
-  background-color: rgb(245,245,245);
-}
-
-#todaysdate {
-  display: inline-block;
-  margin-left: 20px;
-  background-color: rgba(0,0,0,.2);
-  border-radius: 10px;
-  padding: 2px 5px;
-  outline: none;
-}
-
-#todaysdate:hover {
-  color: white;
-}
-
-#todaysdate:active {
-  padding: 2px 6px;
-}
-
-#upcomingevents {
-  border: 1px solid rgba(0,0,0,.3);
-  border-radius: 5px;
-  width: 95%;
-  margin: auto;
-  margin-top: 10px;
-  height: 100px;
+.feedcardcontent p {
+  margin: 10px;
 }

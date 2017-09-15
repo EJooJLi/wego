@@ -1,53 +1,41 @@
 <div class="feedpage">
-  <div id="feedbar">
-    <h1> FEED </h1>
-    <h2> Where to go and what to see? </h2>
-    <input id="feedinput" [(ngModel)]="feedinput" placeholder=". . .">
-    <button type="submit" id="feedsubmit" (click)="feedsubmit()"></button>
-    <img id="feedprofilepic" alt="*profilepic*" src={{profpic}}>
-  </div>
-  <div class="feed">
-    <div class="feedcard" *ngFor="let title of testcards; let i = index" [attr.data-index]="i" [hidden]="testcards[i].removed">
-        <button type="submit" class="feedcardbutton" id="removebutton" (click)="removecard(i)"><p>remove</p></button>
-        <button type="submit" class="feedcardbutton" id="savebutton" (click)="savecard(i)"><p [hidden]="testcards[i].saved">save</p><p [hidden]="!testcards[i].saved">unsave</p></button>
-        <div id="feedcardtitle"><h3 style="display: inline"> {{testcards[i].title}}</h3></div>
-        <div id="feedcarddatesave"><p style="display: inline"> {{testcards[i].date | date}} <span [hidden]="!testcards[i].saved"> - SAVED - </span></div>
-        <br/><div id="feedcardpic" alt="*feedpicture*"></div>
-        <p> {{testcards[i].content}} </p>
-      <br/>
+  <div class="feedsidebar">
+    <div class="map"><img class="mapimg" src="{{map}}">
     </div>
   </div>
-  <div class="sidebar">
-      <h4>WEATHER</h4>
-      <div id="currentweather">
-        <p> High: {{todayweather.High}} </p> <br/>
-        <p> Low: {{todayweather.Low}} </p> <br/>
-        <p> Forecast: {{todayweather.Forecast}} </p> <br/>
-
-      </div>
-
-      <h4 style="display:inline-block;"> CALENDAR </h4>
-      <button type="submit" id="todaysdate" (click)="todaysdate()"> TODAY </button>
-      <div class="calendar">
-        <div class= "days">
-          <p>{{firstdate | date : "MMMM"}} {{year}}<p>
-            <button type="submit" class="monthtoggle" id="monthtoggleprev" (click)="prevmonth()"> < </button>
-            <button type="submit" class="monthtoggle" id="monthtogglenext" (click)="nextmonth()"> > </button>
-          <ul>
-            <li *ngFor="let day of dayslist; let i = index" [attr.data-index]="i">{{day}}</li>
-          </ul>
-              <button type="submit" id="calendardates" *ngFor="let date of dates; let i = index" [attr.data-index]="i" (click)="dateclick(i)">
-                <ul>
-                  <li [class.activedate]="activedate[i]" [class.plandate]="plans[i]"> {{date}} </li>
-                </ul>
-            </button>
+  <div class="feedpagetop">
+    <div class="titlebar"> <h1>A Look Ahead In Los Angeles, CA</h1>
+    </div>
+    <div class="calcontainer">
+      <div class="caldate" *ngFor="let cal of calendarcontent; let i = index" [attr.data-index]="i" [ngStyle]="{'background': weathercolors[i]}">
+        <img class="calimages" src={{calendarimages[i]}}>
+        <div class="calcontent">
+          <p>
+            {{calendarcontent[i].Date | date:'EEEE'}}<br/>
+            {{calendarcontent[i].Date | date:'MMMM d'}}<br/>
+            High: {{calendarcontent[i].High}} <br/>
+            Low: {{calendarcontent[i].Low}} <br/>
+            Forecast: <br/> {{calendarcontent[i].Forecast}}
+        </p>
         </div>
       </div>
-      <h4 style="display:inline-block;"> SAVED UPCOMING EVENTS </h4>
-      <button type="submit" id="todaysdate" (click)="refreshcalendar()"> Show All </button>
-      <div id="upcomingevents">
-        <p *ngFor="let plan of upcomingplans; let i = index" [attr.data-index]="i"> {{upcomingplans[i].date | date}} : {{upcomingplans[i].title}} </p>
+    </div>
+  </div>
+  <div class="feedpagecontent">
+    <!-- <div class="feedsidebar">
+    </div> -->
+    <div class="contentcontainer">
+      <div class="feedcardcontainer" *ngFor="let cal of calendarcontent; let i = index">
+        <div class="feedcardbox" *ngFor="let card of feedcards[i]; let j = index">
+          <div class="feedcardcontent">
+            <div class="feedcardbar" [ngStyle]="{'background-color':feedcards[i][j].like === true ? 'rgb(254, 254, 143)' : 'rgb(175, 234, 249)'}">
+              <!-- <button class="submit" class="cardbutton" id="carddislikebutton" (click)="carddislike()"></button> -->
+              <button class="submit" class="cardbutton" id="cardlikebutton" (click)="cardlike(i,j)"></button>
+            </div>
+            <p>{{feedcards[i][j].title}}</p>
+          </div>
+        </div>
       </div>
-    <br/>
+    </div>
   </div>
 </div>
