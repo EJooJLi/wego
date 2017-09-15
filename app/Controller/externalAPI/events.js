@@ -1,6 +1,5 @@
 "use strict";
 
-let express = require('express'); // For built-in middleware
 let request = require('request');
 
 // Declare eventapi information, consider moving this to .env for masking key
@@ -27,7 +26,7 @@ module.exports = {
 }
 
 // Defining a callback function to handle errors & responses
-var callback = function(err, data) {
+function callback(err, data) {
   if (err) {
     console.log(err);
     return;

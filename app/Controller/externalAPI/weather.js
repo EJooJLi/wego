@@ -1,13 +1,13 @@
 "use strict";
 
-let express = require('express'); // For built-in middleware
 let request = require('request');
 // require("dotenv").config();
 
 // Declare weatherapi information, consider moving this to .env for masking key
-let weatherapi = {
-  key: "&appid=f5823bb83b3698f8b5e825d79e11ec75",
-  root: "http://api.openweathermap.org/data/2.5/weather\?",
+const baseUrl = "http://api.openweathermap.org/data/2.5/weather";
+
+let params = {
+  appid: "&appid=f5823bb83b3698f8b5e825d79e11ec75",
   units: "&units=imperial"
 };
 
@@ -16,9 +16,7 @@ let weatherapi = {
 module.exports = {
   getWeather: function(coord) {
     if (coord) {
-      var coordString = "lat="+coord.lat+"&lon="+coord.lng;
-      var weatherURL = `${weatherapi.root}${coordString}${weatherapi.units}${weatherapi.key}`
-      request(weatherURL, function(err, response, body){
+      request(baseUrl + coordToQuery(coord), function(err, response, body){
         callback(null, body);
       })
     } else {
@@ -28,7 +26,7 @@ module.exports = {
 }
 
 // Defining a callback function to handle errors & responses
-var callback = function(err, data) {
+function callback(err, data) {
   if (err) {
     console.log(err);
     return;
@@ -36,4 +34,10 @@ var callback = function(err, data) {
     console.log(JSON.parse(data));
     return;
   }
+}
+
+function coordToQuery(json) {
+  var coordString = "lat="+json.lat+"&lon="+json.lng;
+  var queryParam = "?" + `${coordString}${params.units}${params.appid}`;
+  return queryParam;
 }
