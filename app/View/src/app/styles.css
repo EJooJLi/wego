@@ -302,7 +302,7 @@ body {
   background: linear-gradient(to right, rgb(111, 174, 246) , rgb(88, 143, 205));
   padding-left: calc(100vw - (16.5vw * 5));
   padding-top: 10px;
-  /*position: fixed;*/
+  position: fixed;
 }
 
 .map {
@@ -324,9 +324,10 @@ body {
 }
 
 .calcontainer {
-  float: right;
+  right: 0px;
   margin-bottom: 10px;
-  /*position: fixed;*/
+  margin-top: 50px;
+  position: fixed;
 }
 
 .caldate{
@@ -338,7 +339,8 @@ body {
 }
 
 .feedpagecontent {
-  margin-top: 20px;
+  margin-top: 200px;
+  overflow: hidden;
 }
 
 .feedsidebar {
@@ -349,6 +351,12 @@ body {
   border-right: 1px solid rgb(88, 143, 205);
   margin-top: 50px;
   position: fixed;
+}
+
+.feedsidebarinfo {
+  border: 1px solid black;
+  width: 100%;
+  height: 500px;
 }
 
 .contentcontainer {

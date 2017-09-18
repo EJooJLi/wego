@@ -36,16 +36,14 @@ export class FeedComponent {
     [{title: "Mini-golf is always a good idea", like: false}],
   ];
 
-  sortedcards = [[],[],[],[],[]];
-
   map = "https://freeiconshop.com/wp-content/uploads/edd/location-map-flat.png";
 
   weathercolors = [
-    "linear-gradient(to bottom, rgba(151, 230, 246, 1) , rgba(151, 230, 246, .8))",
-    "linear-gradient(to bottom, rgba(151, 230, 246, .8) , rgba(151, 230, 246, .6))",
-    "linear-gradient(to bottom, rgba(151, 230, 246, .6) , rgba(151, 230, 246, .4))",
-    "linear-gradient(to bottom, rgba(151, 230, 246, .4) , rgba(151, 230, 246, .2))",
-    "linear-gradient(to bottom, rgba(151, 230, 246, .2) , rgba(151, 230, 246, 0))"
+    "linear-gradient(to bottom, rgb(50, 150, 150) , rgb(75, 200, 200))",
+    "linear-gradient(to bottom, rgb(75, 200, 200) , rgb(100, 225, 225))",
+    "linear-gradient(to bottom, rgb(100, 225, 225) , rgb(125, 225, 225))",
+    "linear-gradient(to bottom, rgb(125, 225, 225) , rgb(150, 250, 250))",
+    "linear-gradient(to bottom, rgb(150, 250, 250) , rgb(175, 250, 250))"
   ]
 
   cardlike(i:number,j:number) {

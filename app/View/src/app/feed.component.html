@@ -2,12 +2,14 @@
   <div class="feedsidebar">
     <div class="map"><img class="mapimg" src="{{map}}">
     </div>
+    <div class="feedsidebarinfo">
+    </div>
   </div>
   <div class="feedpagetop">
     <div class="titlebar"> <h1>A Look Ahead In Los Angeles, CA</h1>
     </div>
     <div class="calcontainer">
-      <div class="caldate" *ngFor="let cal of calendarcontent; let i = index" [attr.data-index]="i" [ngStyle]="{'background': weathercolors[i]}">
+      <div class="caldate" *ngFor="let cal of calendarcontent; let i = index" [ngStyle]="{'background': weathercolors[i]}">
         <img class="calimages" src={{calendarimages[i]}}>
         <div class="calcontent">
           <p>
@@ -22,8 +24,6 @@
     </div>
   </div>
   <div class="feedpagecontent">
-    <!-- <div class="feedsidebar">
-    </div> -->
     <div class="contentcontainer">
       <div class="feedcardcontainer" *ngFor="let cal of calendarcontent; let i = index">
         <div class="feedcardbox" *ngFor="let card of feedcards[i]; let j = index">
