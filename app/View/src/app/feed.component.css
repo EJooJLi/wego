@@ -1,0 +1,135 @@
+/*~~~~~~~~~~~FEEDCOMPONENT~~~~~~~~~~~*/
+.feedpage {
+  background-color: rgb(253, 249, 244);
+  overflow: auto;
+}
+
+.feedpagetop {
+}
+
+.feedpage h1 {
+  color: white;
+  font-size: 20px;
+}
+
+.titlebar {
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(to right, rgb(111, 174, 246) , rgb(88, 143, 205));
+  padding-left: calc(100vw - (16.5vw * 5));
+  padding-top: 10px;
+  position: fixed;
+}
+
+.map {
+  display: inline-block;
+  width: 16.5vw;
+  height: 16.5vw;
+  padding: 10px;
+}
+
+.mapimg {
+  height: 100%;
+}
+
+.calimages {
+  height: 30%;
+  max-height: 40px;
+  top: 0px;
+  float: right;
+}
+
+.calcontainer {
+  right: 0px;
+  margin-bottom: 10px;
+  margin-top: 50px;
+  position: fixed;
+}
+
+.caldate{
+  display: inline-block;
+  width: 16.5vw;
+  height: 10.5vw;
+  float: left;
+  padding: 10px;
+}
+
+.feedpagecontent {
+  margin-top: 200px;
+  overflow: hidden;
+}
+
+.feedsidebar {
+  display: inline-block;
+  width: 16.5vw;
+  height: 100vh;
+  float: left;
+  border-right: 1px solid rgb(88, 143, 205);
+  margin-top: 50px;
+  position: fixed;
+}
+
+.feedsidebarinfo {
+  border: 1px solid black;
+  width: 100%;
+  height: 500px;
+}
+
+.contentcontainer {
+  float: right;
+}
+
+.feedcardcontainer {
+  display: inline-block;
+  width: 16.5vw;
+  float: left;
+}
+
+.feedcardbox {
+  width: 16.5vw;
+  height: 16.5vw;
+  margin: 0px 0px 10px 0px;
+  padding: 5px;
+}
+
+.feedcardbar {
+  width: 100%;
+  height: 40px;
+  background-color: rgb(175, 234, 249);
+}
+
+.cardbutton {
+  display: inline-block;
+  width: 40px;
+  height: 100%;
+  float: right;
+  outline: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: 7px solid transparent;
+  background-color: transparent;
+}
+
+.cardbutton:hover {
+  border: 5px solid transparent;
+}
+
+#cardlikebutton {
+  background-image: url("https://image.flaticon.com/icons/svg/70/70435.svg");
+}
+
+
+#cardlikebutton:active {
+  border: 4px solid transparent;
+}
+
+.feedcardcontent {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 1px 10px 1px rgba(0,0,0,0.2);
+  background: linear-gradient(to bottom, rgb(232, 251, 254) , rgb(245, 249, 250));
+}
+
+.feedcardcontent p {
+  margin: 10px;
+}

@@ -1,0 +1,113 @@
+/*~~~~~~~~~~~~~~~~NAVBARCOMPONENT~~~~~~~~~~~~~~~~*/
+#navshow {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  background-position: -5px 0px;
+  border-radius: 0px 0px 60px 0px;
+  background-image: url("https://favim.com/media/uploads/images/mini/140325/cute-smiley-face-transparent-Favim.com-1543790.jpg");
+  opacity: 0.8;
+  background-size: contain;
+  z-index: 3;
+}
+
+#navshow:hover {
+  height: 180px;
+  width: 180px;
+  background-color: rgba(255, 255, 255, .3);
+  opacity: 1;
+  border-radius: 0px 0px 180px 0px;
+  background-image: none;
+}
+
+#navshow p {
+  color: black;
+  text-align: left;
+  font-size: 15px;
+  width: auto;
+}
+
+#navshow p:hover {
+  font-size: 17px;
+}
+
+#navshow p:focus, #navshow p:active {
+  color: blue;
+}
+
+.navbutton, .navbutton:active, .navbutton:visited, .navbutton:focus {
+  background-color: rgba(255, 255, 255, 0);
+  width: auto;
+  text-align: center;
+  outline: 0;
+  margin: 10px 0px 0px 10px;
+}
+
+.signinup {
+  position: fixed;
+  padding: 0px 50px 10px 40px;
+  background-color: rgba(255,255,255,.9);
+  border-radius: 0px 0px 20px 0px;
+  z-index: 4;
+}
+
+.signinup h1 {
+  font-size: 20px;
+}
+
+.signinup p {
+  font-size: 15px;
+}
+
+#closesigninup {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  outline: none;
+  cursor: pointer;
+  margin-left: -40px;
+  background-color: rgba(0,0,0,.1);
+  border-radius: 10px;
+}
+
+#signupininput {
+  width: 150px;
+  height: 20px;
+  font-size: 12px;
+  padding-left: 10px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-bottom: 10px;
+  border: 1px solid rgba(0,0,0,.3);
+}
+
+#signupininput:hover {
+  background-color: rgba(222, 224, 230, 0.7);
+}
+
+#signupininput:focus {
+  background-color: rgba(222, 224, 230, 0.7);
+  outline: none;
+}
+
+#signupinsubmit {
+  margin: auto;
+  outline: none;
+  padding: 5px;
+  font-size: 15px;
+  margin-top: 10px;
+  background-color: rgb(137, 240, 171);
+  border-radius: 2px;
+  display: inline-block;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#signupinsubmit:hover{
+  background-color: rgba(222, 224, 230, 0.7);
+  outline: none;
+  cursor: pointer;
+}
+
+#signupinsubmit:active{
+  background-color: rgba(222, 224, 230, 1)
+}
