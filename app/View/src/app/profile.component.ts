@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'userdata',
   templateUrl: './profile.component.html',
-  styleUrls: ['./styles.css']
+  styleUrls: ['./profile.component.css']
 
 })
 

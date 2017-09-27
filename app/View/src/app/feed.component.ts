@@ -6,7 +6,7 @@ import { NgStyle } from '@angular/common';
 @Component({
   selector: 'feeddata',
   templateUrl: './feed.component.html',
-  styleUrls: ['./styles.css']
+  styleUrls: ['./feed.component.css']
 
 })
 

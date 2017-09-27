@@ -9,7 +9,7 @@ import { Headers } from '@angular/http';
 @Component({
   selector: 'header',
   templateUrl: './home.component.html',
-  styleUrls: ['./styles.css']
+  styleUrls: ['./home.component.css']
 
 })
 

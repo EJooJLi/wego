@@ -9,7 +9,7 @@ var userdbConn = process.env.DB_CONN;
 var db = mongoose.connect(userdbConn, {
   useMongoClient: true,
 });
-mongoose.Promise = require("bluebird");
+// mongoose.Promise = require("bluebird");
 
 // CONNECTION EVENTS
 db.on('connected', function () {

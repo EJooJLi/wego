@@ -7,7 +7,7 @@ interface weatherdata {
 
 @Component({
   selector: 'app-root',
-  styleUrls: ['./styles.css'],
+  styleUrls: ['./app.component.css'],
   template:
   ` <body>
     <navbar></navbar>
